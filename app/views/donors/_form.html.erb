@@ -1,0 +1,57 @@
+<%= form_for(@donor) do |f| %>
+  <% if @donor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donor.errors.count, "error") %> prohibited this donor from being saved:</h2>
+
+      <ul>
+      <% @donor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_birth %><br>
+    <%= f.text_field :date_of_birth %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %><br>
+    <%= f.text_field :sex %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :primary_phone_number %><br>
+    <%= f.text_field :primary_phone_number %>
+  </div>
+  <div class="field">
+    <%= f.label :secondary_phone_number %><br>
+    <%= f.text_field :secondary_phone_number %>
+  </div>
+  <div class="field">
+    <%= f.label :blood_group %><br>
+    <%= f.text_field :blood_group %>
+  </div>
+  <div class="field">
+    <%= f.label :email_address %><br>
+    <%= f.text_field :email_address %>
+  </div>
+  <div class="field">
+    <%= f.label :donor_card_id %><br>
+    <%= f.text_field :donor_card_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

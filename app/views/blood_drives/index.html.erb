@@ -1,0 +1,31 @@
+<h1>Listing blood_drives</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Date</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blood_drives.each do |blood_drive| %>
+      <tr>
+        <td><%= blood_drive.location %></td>
+        <td><%= blood_drive.date %></td>
+        <td><%= blood_drive.description %></td>
+        <td><%= link_to 'Show', blood_drive %></td>
+        <td><%= link_to 'Edit', edit_blood_drife_path(blood_drive) %></td>
+        <td><%= link_to 'Destroy', blood_drive, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Blood drive', new_blood_drife_path %>

@@ -1,0 +1,45 @@
+<h1>Listing donors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Date of birth</th>
+      <th>Sex</th>
+      <th>Address</th>
+      <th>Primary phone number</th>
+      <th>Secondary phone number</th>
+      <th>Blood group</th>
+      <th>Email address</th>
+      <th>Donor card</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @donors.each do |donor| %>
+      <tr>
+        <td><%= donor.first_name %></td>
+        <td><%= donor.last_name %></td>
+        <td><%= donor.date_of_birth %></td>
+        <td><%= donor.sex %></td>
+        <td><%= donor.address %></td>
+        <td><%= donor.primary_phone_number %></td>
+        <td><%= donor.secondary_phone_number %></td>
+        <td><%= donor.blood_group %></td>
+        <td><%= donor.email_address %></td>
+        <td><%= donor.donor_card_id %></td>
+        <td><%= link_to 'Show', donor %></td>
+        <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
+        <td><%= link_to 'Destroy', donor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Donor', new_donor_path %>

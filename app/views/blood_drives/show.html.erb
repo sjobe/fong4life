@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @blood_drive.location %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @blood_drive.date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @blood_drive.description %>
+</p>
+
+<%= link_to 'Edit', edit_blood_drife_path(@blood_drive) %> |
+<%= link_to 'Back', blood_drives_path %>
