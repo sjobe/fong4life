@@ -1,11 +1,10 @@
-<h1>Listing blood_drives</h1>
+<h1>Blood Drives</h1>
 
-<table>
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Location</th>
       <th>Date</th>
-      <th>Description</th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,7 +16,6 @@
       <tr>
         <td><%= blood_drive.location %></td>
         <td><%= blood_drive.date %></td>
-        <td><%= blood_drive.description %></td>
         <td><%= link_to 'Show', blood_drive %></td>
         <td><%= link_to 'Edit', edit_blood_drife_path(blood_drive) %></td>
         <td><%= link_to 'Destroy', blood_drive, method: :delete, data: { confirm: 'Are you sure?' } %></td>
