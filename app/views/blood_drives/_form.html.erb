@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= f.label :location %><br>
-    <%= f.text_field :location %>
+    <%= f.text_field :location, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :date %><br>
-    <%= f.text_field :date %>
+    <%= f.text_field :date, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save', class: 'btn btn-primary' %>
   </div>
 <% end %>

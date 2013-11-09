@@ -13,45 +13,45 @@
 
   <div class="field">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :date_of_birth %><br>
-    <%= f.text_field :date_of_birth %>
+    <%= f.text_field :date_of_birth, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :sex %><br>
-    <%= f.text_field :sex %>
+    <%= f.text_field :sex, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :address %><br>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :primary_phone_number %><br>
-    <%= f.text_field :primary_phone_number %>
+    <%= f.text_field :primary_phone_number, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :secondary_phone_number %><br>
-    <%= f.text_field :secondary_phone_number %>
+    <%= f.text_field :secondary_phone_number, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :blood_group %><br>
-    <%= f.text_field :blood_group %>
+    <%= f.text_field :blood_group, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :email_address %><br>
-    <%= f.text_field :email_address %>
+    <%= f.text_field :email_address, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :donor_card_id %><br>
-    <%= f.text_field :donor_card_id %>
+    <%= f.text_field :donor_card_id, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save', class: 'btn btn-primary' %>
   </div>
 <% end %>
