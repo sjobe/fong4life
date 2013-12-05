@@ -50,6 +50,8 @@
   <div class="field">
     <%= f.label :donor_card_id %><br>
     <%= f.text_field :donor_card_id, class: 'form-control' %>
+    <%= hidden_field_tag :event_id, event_id if (defined? event_id) %>
+    <%= hidden_field_tag :event_type, event_type if (defined? event_type) %>
   </div>
   <div class="actions">
     <%= f.submit 'Save', class: 'btn btn-primary' %>

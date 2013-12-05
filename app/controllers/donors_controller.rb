@@ -25,14 +25,29 @@ class DonorsController < ApplicationController
   # POST /donors.json
   def create
     @donor = Donor.new(donor_params)
+    donor_saved = @donor.save
+    donation_saved = false
+
+    if donor_saved && params[:event_id].present? && params[:event_type].present?
+      event = BloodDrive.find(params[:event_id]) if params[:event_type] == 'blood_drive'
+      event = Emergency.find(params[:event_id]) if params[:event_type] == 'emergency'
+      if event
+        donation = Donation.new
+        donation.donor = @donor
+        donation.eventable = event
+        donation_saved = donation.save
+      end
+    end
 
     respond_to do |format|
-      if @donor.save
-        format.html { redirect_to @donor, notice: 'Donor was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @donor }
+      if donor_saved
+        if donation_saved
+          format.html { redirect_to event, notice: 'Donor was successfully added to your event.' }
+        else
+          format.html { redirect_to @donor, notice: 'Donor was successfully created' }
+        end
       else
         format.html { render action: 'new' }
-        format.json { render json: @donor.errors, status: :unprocessable_entity }
       end
     end
   end
