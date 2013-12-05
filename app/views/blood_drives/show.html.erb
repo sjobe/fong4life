@@ -15,5 +15,6 @@
   <%= @blood_drive.description %>
 </p>
 
-<%= link_to 'Edit', edit_blood_drife_path(@blood_drive) %> |
 <%= link_to 'Back', blood_drives_path %>
+
+<%= render partial: 'donors/form', locals: { event_id: @blood_drive.id, event_type: 'blood_drive' } %>

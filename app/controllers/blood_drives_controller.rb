@@ -10,6 +10,7 @@ class BloodDrivesController < ApplicationController
   # GET /blood_drives/1
   # GET /blood_drives/1.json
   def show
+    @donor = Donor.new
   end
 
   # GET /blood_drives/new
