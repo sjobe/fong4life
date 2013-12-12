@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :sex %><br>
-    <%= f.text_field :sex, class: 'form-control' %>
+    <%= f.select :sex,%w{M F}, {include_blank: true}, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :address %><br>
@@ -41,7 +41,7 @@
   </div>
   <div class="field">
     <%= f.label :blood_group %><br>
-    <%= f.text_field :blood_group, class: 'form-control' %>
+    <%= f.select :blood_group, Donor::BLOOD_GROUPS, {include_blank: true}, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :email_address %><br>
