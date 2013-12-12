@@ -1,31 +1,6 @@
 <h1>Donors</h1>
 
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Primary Number</th>
-      <th>Blood group</th>
-      <th>Email address</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @donors.each do |donor| %>
-      <tr>
-        <td><%= link_to "#{donor.first_name} #{donor.last_name}", donor %></td>
-        <td><%= donor.address %></td>
-        <td><%= donor.primary_phone_number %></td>
-        <td><%= donor.blood_group %></td>
-        <td><%= donor.email_address %></td>
-        <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<%= render 'shared/donors_table', donors: @donors %>
 <br>
 
 <%= link_to 'New Donor', new_donor_path %>

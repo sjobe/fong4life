@@ -14,6 +14,7 @@ class Donor
   field :blood_group, type: String
   field :email_address, type: String
   field :donor_card_id, type: String
+  validates_uniqueness_of :primary_phone_number
 
 
   def can_donate_now?
