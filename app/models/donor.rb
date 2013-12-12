@@ -4,6 +4,9 @@ class Donor
   include Mongoid::Timestamps
   has_many :donations
 
+  BLOOD_GROUPS = ['A POS', 'A NEG', 'B POS', 
+                  'B NEG', 'O POS', 'O NEG', 
+                  'AB POS', 'AB NEG']
   field :first_name, type: String
   field :last_name, type: String
   field :date_of_birth, type: Date
