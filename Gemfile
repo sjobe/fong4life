@@ -46,6 +46,9 @@ group :doc do
 end
 
 gem 'jquery-rails'
+gem 'omniauth'
+gem "omniauth-google-oauth2"
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'rspec-rails'

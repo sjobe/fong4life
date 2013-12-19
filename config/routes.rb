@@ -7,6 +7,10 @@ Fong4life::Application.routes.draw do
    root 'home#index'
    resources :donors
    resources :blood_drives
+  
+   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+   match 'auth/failure', to: redirect('/'), via: [:get, :post]
+   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
