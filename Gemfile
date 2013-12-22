@@ -48,7 +48,8 @@ end
 gem 'jquery-rails'
 gem 'omniauth'
 gem "omniauth-google-oauth2"
-gem 'omniauth-facebook'
+#gem 'omniauth-facebook'
+gem 'omniauth-facebook', '1.4.0'
 
 group :development, :test do
   gem 'rspec-rails'
