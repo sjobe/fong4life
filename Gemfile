@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 
 
 # Use SCSS for stylesheets
@@ -46,6 +46,10 @@ group :doc do
 end
 
 gem 'jquery-rails'
+gem 'omniauth'
+gem "omniauth-google-oauth2"
+#gem 'omniauth-facebook'
+gem 'omniauth-facebook', '1.4.0'
 
 group :development, :test do
   gem 'rspec-rails'
