@@ -76,4 +76,6 @@ test:
         retry_interval: 0
 
 production:
-  uri: <%= ENV['MONGOHQ_URL'] %>
+  sessions:
+    default:
+      uri: <%= ENV['MONGOHQ_URL'] %>
