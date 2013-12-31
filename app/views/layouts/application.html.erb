@@ -63,6 +63,10 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
   <div class="container">
+
+  <div class="alert-message">
+  <%= flash[:notice]%>
+  </div>
     <%= yield %>
   </div>
 </div>
