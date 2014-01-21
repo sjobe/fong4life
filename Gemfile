@@ -37,9 +37,6 @@ gem 'mongoid-versioning'
 
 gem 'bson_ext'
 
-
-
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -47,12 +44,12 @@ end
 
 gem 'omniauth'
 gem "omniauth-google-oauth2"
-#gem 'omniauth-facebook'
-gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'better_errors'
 end
 
 group :production do
