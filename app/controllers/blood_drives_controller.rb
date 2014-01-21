@@ -63,6 +63,30 @@ class BloodDrivesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
+  # POST /blood_drives/:id/add_donor/:donor_id
+  def add_donor
+    @donor = params[:donor_id] && Donor.find(params[:donor_id])
+    @blood_drive = params[:id] && BloodDrive.find(params[:id])
+    
+    if @donor && @blood_drive
+      donation = Donation.new
+      donation.donor = @donor
+      donation.eventable = @blood_drive
+      donation_saved = donation.save
+    else
+      donation_saved = false
+    end
+    
+    respond_to do |format|
+      if donation_saved
+        format.html { redirect_to @blood_drive, notice: 'Donor was successfully added to the blood drive.' }
+      else
+        format.html { redirect_to @blood_drive, warning: 'Could not add donor to the blood drive.' }
+      end
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

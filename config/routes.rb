@@ -6,7 +6,10 @@ Fong4life::Application.routes.draw do
 
    root 'home#index'
    resources :donors
-   resources :blood_drives
+   resources :blood_drives do 
+     post 'add_donor', on: :member
+     get 'add_donor', on: :member
+   end
   
    match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
    match 'auth/failure', to: redirect('/'), via: [:get, :post]
