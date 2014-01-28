@@ -23,5 +23,11 @@ class Donor
   def can_donate_now?
 
   end
+  
+  def autocomplete_text
+    "#{first_name} #{last_name} | #{primary_phone_number}"
+  end
+  
+  
 
 end

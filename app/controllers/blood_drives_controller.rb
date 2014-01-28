@@ -87,6 +87,12 @@ class BloodDrivesController < ApplicationController
       end
     end
   end
+  
+  def delete_donor
+    debugger
+    #TODO need confirm here
+    #Donation.where(donor_id: params[:donor_id], eventable_id: params[:id]).first.destroy
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
