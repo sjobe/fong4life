@@ -19,6 +19,7 @@
         <td><%= donor.blood_group %></td>
         <td><%= donor.email_address %></td>
         <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
+        <td><%= link_to 'Remove', [blood_drive, donor], method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
