@@ -17,4 +17,15 @@
 
 <%= render partial: 'donors/form', locals: { event_id: @blood_drive.id, event_type: 'blood_drive' } %>
 
-<%= render 'shared/donors_table', donors: @donors %>
+
+<%= form_tag "/blood_drives/#{@blood_drive.id}/add_donor/", method: :post do %>
+<h3>Add Existing Donor to this drive</h3>
+<%= select_tag :donor_id, options_from_collection_for_select(Donor.all, "id", "autocomplete_text") %>
+
+  <div class="actions">
+    <%= submit_tag 'Save Add Donor', class: 'btn btn-primary' %>
+  </div>
+
+<% end %>
+
+<%= render 'shared/donors_table', donors: @donors, blood_drive: @blood_drive %>
