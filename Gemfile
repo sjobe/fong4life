@@ -42,9 +42,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'jquery-rails'
 gem 'omniauth'
 gem "omniauth-google-oauth2"
 gem 'omniauth-facebook'
+gem 'select2-rails'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -66,4 +68,4 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
+# gem 'debugger', group: [:development, :test]

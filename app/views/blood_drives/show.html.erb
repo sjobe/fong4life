@@ -18,7 +18,7 @@
 <%= render partial: 'donors/form', locals: { event_id: @blood_drive.id, event_type: 'blood_drive' } %>
 
 
-<%= form_tag "/blood_drives/#{@blood_drive.id}/add_donor/", method: :post do %>
+<%= form_tag "/blood_drives/#{@blood_drive.id}/add_donor/", method: :post, id: 'add-donor-to-drive' do %>
 <h3>Add Existing Donor to this drive</h3>
 <%= select_tag :donor_id, options_from_collection_for_select(Donor.all, "id", "autocomplete_text") %>
 
