@@ -89,9 +89,8 @@ class BloodDrivesController < ApplicationController
   end
   
   def delete_donor
-    debugger
     #TODO need confirm here
-    #Donation.where(donor_id: params[:donor_id], eventable_id: params[:id]).first.destroy
+    Donation.where(donor_id: params[:donor_id], eventable_id: params[:id]).first.destroy
   end
 
   private

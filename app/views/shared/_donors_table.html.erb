@@ -11,7 +11,8 @@
   </thead>
 
   <tbody>
-    <% donors.each do |donor| %>
+    <% donors.compact.each do |donor| %>
+   
       <tr>
         <td><%= link_to "#{donor.first_name} #{donor.last_name}", donor %></td>
         <td><%= donor.address %></td>
@@ -19,7 +20,15 @@
         <td><%= donor.blood_group %></td>
         <td><%= donor.email_address %></td>
         <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
-        <td><%= link_to 'Remove', [blood_drive, donor], method: :delete %></td>
+        <% if defined? blood_drive %>
+          <td><%= link_to 'Remove', [blood_drive, donor], method: :delete %></td>
+
+       
+        <% else %>
+          <td><%= link_to 'Remove', donor, method: :delete %></td>
+
+        
+        <% end %>
       </tr>
     <% end %>
   </tbody>
