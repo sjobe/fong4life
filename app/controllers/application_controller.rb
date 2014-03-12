@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     def check_login
       unless current_user
         flash.now[:notice] = 'Please login first' 
-        render :index
+        redirect_to root_path
       end
     end
     
