@@ -1,6 +1,5 @@
 class BloodDrivesController < ApplicationController
   before_action :set_blood_drive, only: [:show, :edit, :update, :destroy]
-  before_action :check_login, only: [:new]
 
   # GET /blood_drives
   # GET /blood_drives.json
@@ -70,6 +69,8 @@ class BloodDrivesController < ApplicationController
     @donor = params[:donor_id] && Donor.find(params[:donor_id])
     @blood_drive = params[:id] && BloodDrive.find(params[:id])
     
+    redirect_to @blood_drive, notice: 'Donor already added' and return if Donation.where(donor: @donor, eventable: @blood_drive).count > 0
+    
     if @donor && @blood_drive
       donation = Donation.new
       donation.donor = @donor
@@ -102,12 +103,5 @@ class BloodDrivesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def blood_drive_params
       params.require(:blood_drive).permit(:location, :date, :description)
-    end
-
-    def check_login
-      unless current_user
-        flash[:notice] = 'Please login first' 
-        redirect_to action: :index
-      end
     end
 end
