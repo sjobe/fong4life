@@ -69,6 +69,8 @@ class BloodDrivesController < ApplicationController
     @donor = params[:donor_id] && Donor.find(params[:donor_id])
     @blood_drive = params[:id] && BloodDrive.find(params[:id])
     
+    redirect_to @blood_drive, notice: 'Donor already added' and return if Donation.where(donor: @donor, eventable: @blood_drive).count > 0
+    
     if @donor && @blood_drive
       donation = Donation.new
       donation.donor = @donor
