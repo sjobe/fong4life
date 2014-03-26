@@ -9,7 +9,7 @@ Fong4life::Application.routes.draw do
    resources :blood_drives do 
      post 'add_donor', on: :member
      get 'add_donor', on: :member
-     #delete 'delete_donor', on: :member
+     get 'delete_donor', on: :member
      resources :donors, only: [:destroy]
    end
   

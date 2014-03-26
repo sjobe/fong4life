@@ -21,11 +21,9 @@
         <td><%= donor.email_address %></td>
         <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
         <% if defined? blood_drive %>
-          <td><%= link_to 'Remove', [blood_drive, donor], method: :delete %></td>
-
-       
+        <td><%= link_to 'Remove', delete_donor_blood_drife_path(donor_id: donor.id, id: blood_drive.id) %></td>
         <% else %>
-          <td><%= link_to 'Remove', donor, method: :delete %></td>
+          <td><%= link_to 'Remove', donor, method: :get %></td>
 
         
         <% end %>
