@@ -91,7 +91,9 @@ class BloodDrivesController < ApplicationController
   
   def delete_donor
     #TODO need confirm here
-    Donation.where(donor_id: params[:donor_id], eventable_id: params[:id]).first.destroy
+    @blood_drive = params[:id] && BloodDrive.find(params[:id])
+    Donation.where(donor_id: params[:donor_id], eventable_id: params[:id]).destroy_all
+    redirect_to @blood_drive, notice: 'Donation sucessfully removed'
   end
 
   private
