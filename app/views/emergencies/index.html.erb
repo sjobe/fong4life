@@ -1,0 +1,29 @@
+<h1>Listing emergencies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Details</th>
+      <th>Sms message text</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @emergencies.each do |emergency| %>
+      <tr>
+        <td><%= emergency.details %></td>
+        <td><%= emergency.sms_message_text %></td>
+        <td><%= link_to 'Show', emergency %></td>
+        <td><%= link_to 'Edit', edit_emergency_path(emergency) %></td>
+        <td><%= link_to 'Destroy', emergency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Emergency', new_emergency_path %>
