@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @emergency.details %>
+</p>
+
+<p>
+  <strong>Sms message text:</strong>
+  <%= @emergency.sms_message_text %>
+</p>
+
+<%= link_to 'Edit', edit_emergency_path(@emergency) %> |
+<%= link_to 'Back', emergencies_path %>

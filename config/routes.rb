@@ -6,6 +6,7 @@ Fong4life::Application.routes.draw do
 
    root 'home#index'
    resources :donors
+   resources :emergencies
    resources :blood_drives do 
      post 'add_donor', on: :member
      get 'add_donor', on: :member
