@@ -9,4 +9,5 @@ class Emergency
   field :created_by, type: String
   field :donor_found, type: Boolean, default: false
   field :donor_details, type: String
+  field :blood_type, type: String
 end
