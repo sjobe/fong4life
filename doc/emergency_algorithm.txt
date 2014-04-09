@@ -1,0 +1,25 @@
+- Let S be the set of donors that we will be contacting
+- S = All Donors
+a. A new emergency is created [for a single recepient] with the blood type selected and location
+
+Criteria
+- S = All donors that have blood type specified in a. or O NEG
+
+Preference Criteria
+For any two donors a and b, a gets selected/contacted first if
+- a's last emergency notification is less recent than b's
+- a's next eligible donation date is earlier than b's
+- a's locations is closer than b's 
+
+How we notify
+- After the pool of potential donors is identified, we
+  - send out sms notifications to the first x potential donors
+  - disable the Send button for y minutes 
+  - if no donor found after y minutes, admin can hit Send again to notify the next x donors
+
+How Admin stops futher notifications
+- "Donor Found" button
+  - Pops up form where details about the donor is entered
+  - stop any process that's still notifying potential donors
+  - disable emergency so it can't be used for further notifications
+  - notify previously contacted potential donors from S that a match has been found
