@@ -4,9 +4,18 @@ class Donor
   include Mongoid::Timestamps
   has_many :donations
 
-  BLOOD_TYPES = ['A POS', 'A NEG', 'B POS', 
-                  'B NEG', 'O POS', 'O NEG', 
-                  'AB POS', 'AB NEG']
+  BLOOD_TYPE_A_POS = 'A POS'
+  BLOOD_TYPE_A_NEG = 'A NEG'
+  BLOOD_TYPE_UNIVERSAL_DONOR = 'O NEG'
+  BLOOD_TYPE_AB_POS = 'AB POS'
+  BLOOD_TYPE_UNIVERSAL_RECIPIENT = 'AB NEG'
+  BLOOD_TYPE_B_POS = 'B POS'
+  BLOOD_TYPE_B_NEG = 'B NEG'
+  BLOOD_TYPE_O_POS = 'O POS'
+  
+  BLOOD_GROUPS = [BLOOD_TYPE_A_POS, BLOOD_TYPE_A_NEG, BLOOD_TYPE_B_POS, 
+                 BLOOD_TYPE_B_NEG, BLOOD_TYPE_O_POS, BLOOD_TYPE_UNIVERSAL_DONOR, 
+                  BLOOD_TYPE_AB_POS, BLOOD_TYPE_UNIVERSAL_RECIPIENT]
   field :first_name, type: String
   field :last_name, type: String
   field :date_of_birth, type: Date
