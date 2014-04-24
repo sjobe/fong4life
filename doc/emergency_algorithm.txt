@@ -3,7 +3,7 @@
 a. A new emergency is created [for a single recepient] with the blood type selected and location
 
 Criteria
-- S = All donors that have blood type specified in a. or O NEG
+- S = All donors that have blood type specified in a. or O NEG OR All donors if blood type is universal recepient
 
 Preference Criteria
 For any two donors a and b, a gets selected/contacted first if
