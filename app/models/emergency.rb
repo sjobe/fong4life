@@ -12,10 +12,10 @@ class Emergency
   field :donor_found, type: Boolean, default: false
   field :donor_details, type: String
   field :blood_group, type: String
-#  field :pending_matches, type: Array
-#  field :contacted_matches, type: Array
 
   after_create :find_and_contact_matches
+  
+  BATCH_SIZE = 5
   
   def find_and_contact_matches
     # call populate matches
@@ -32,9 +32,15 @@ class Emergency
     self.pending_matches = donors
   end
   
-  def contact_matches
-    # Send SMS to the next x top matches in pending_matches
-    # It's going to move the contacted matches from pending_matches to contacted_matches
+  def contact_matches(batch_size = BATCH_SIZE)
+    count = 0
+    while self.pending_matches.count > 0 && count%batch_size != 0
+      current_donor = self.pending_matches.pop
+      #      current_donor.contact(self) #TODO: SMS Sending here; need to implement
+      self.contacted_matches << current_donor
+      self.save
+      count++;
+    end    
   end
   
   def close_emergency(donor_found, donor_details)
