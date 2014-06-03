@@ -23,6 +23,7 @@ class Emergency
   end
   
   def populate_matches
+    # picks out a bunch of matches given criteria, and populates the pending matches list
     if self.blood_group == Donor::BLOOD_TYPE_UNIVERSAL_RECIPIENT 
       donors = Donor.all
     else
@@ -33,14 +34,16 @@ class Emergency
   end
   
   def contact_matches(batch_size = BATCH_SIZE)
+    # contact some or possibly all of the people we just selected out, depending on
+    # batch size and move them to the contacted matches list
     count = 0
-    while self.pending_matches.count > 0 && count%batch_size != 0
+    while ((self.pending_matches.count > 0) && (count < batch_size)) do
       current_donor = self.pending_matches.pop
       #      current_donor.contact(self) #TODO: SMS Sending here; need to implement
       self.contacted_matches << current_donor
-      self.save
-      count++;
+      count += 1
     end    
+    self.save
   end
   
   def close_emergency(donor_found, donor_details)
