@@ -13,14 +13,9 @@ class Emergency
   field :donor_details, type: String
   field :blood_group, type: String
 
-  after_create :find_and_contact_matches
+  after_create :populate_matches
   
   BATCH_SIZE = 5
-  
-  def find_and_contact_matches
-    # call populate matches
-    # call contact_matches
-  end
   
   def populate_matches
     # picks out a bunch of matches given criteria, and populates the pending matches list
