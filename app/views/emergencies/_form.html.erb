@@ -17,11 +17,11 @@
   </div>
   <div class="field">
     <%= f.label :sms_message_text %><br>
-    <%= f.text_field :sms_message_text %>
+    <%= f.text_area :sms_message_text %>
   </div>
   <div class="field">
-    <%= f.label :blood_type %><br>
-    <%= f.select :blood_type, Donor::BLOOD_TYPES, {include_blank: 'Select Blood Type'} %>
+    <%= f.label :blood_group %><br>
+    <%= f.select :blood_group, Donor::BLOOD_GROUPS, {include_blank: 'Select Blood Type'} %>
   </div>
   <div class="actions">
     <%= f.submit %>
