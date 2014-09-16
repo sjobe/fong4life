@@ -14,7 +14,7 @@
     <% @blood_drives.each do |blood_drive| %>
       <tr>
         <td><%= blood_drive.location %></td>
-        <td><%= blood_drive.date %></td>
+        <td><%= formatted_date(blood_drive.date) %></td>
         <td><%= link_to 'Show', blood_drive %></td>
         <td><%= link_to 'Edit', edit_blood_drife_path(blood_drive) %></td>
       </tr>
