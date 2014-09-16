@@ -1,31 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @blood_drive.location %>
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @blood_drive.date %>
-</p>
-
-<p>
-  <strong>Description:</strong>
+<h1>Blood Drive :: <%= @blood_drive.location %> :: <%= formatted_date(@blood_drive.date)%></h1>
+<p class="jumbotron">
   <%= @blood_drive.description %>
 </p>
 
-<%= render partial: 'donors/form', locals: { event_id: @blood_drive.id, event_type: 'blood_drive' } %>
-
-
-<%= form_tag "/blood_drives/#{@blood_drive.id}/add_donor/", method: :post, id: 'add-donor-to-drive' do %>
-<h3>Add Existing Donor to this drive</h3>
-<%= select_tag :donor_id, options_from_collection_for_select(Donor.all, "id", "autocomplete_text") %>
-
-  <div class="actions">
-    <%= submit_tag 'Save Add Donor', class: 'btn btn-primary' %>
+<div class="row">
+  <div class="col-md-8">
+    <%= render 'shared/donors_table', donors: @donors, blood_drive: @blood_drive %>
   </div>
+  <div class="col-md-4">
+    <%= render partial: 'donors/form', locals: { event_id: @blood_drive.id, event_type: 'blood_drive' } %>
+    <%= form_tag "/blood_drives/#{@blood_drive.id}/add_donor/", method: :post, id: 'add-donor-to-drive' do %>
+    <h3>Add Existing Donor to this drive</h3>
+    <%= select_tag :donor_id, options_from_collection_for_select(Donor.all, "id", "autocomplete_text") %>
+      <div class="actions">
+      <%= submit_tag 'Save Add Donor', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+    
 
-<% end %>
 
-<%= render 'shared/donors_table', donors: @donors, blood_drive: @blood_drive %>
+
