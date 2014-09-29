@@ -4,6 +4,12 @@ class Donor
   include Mongoid::Timestamps
   has_many :donations
 
+  validates_presence_of :first_name, :last_name, :date_of_birth, :sex, :address, :primary_phone_number, :blood_group, :donor_card_id
+  validates_uniqueness_of :primary_phone_number
+  validates :primary_phone_number, :secondary_phone_number, length: {in: 7..13}
+
+
+
   BLOOD_TYPE_A_POS = 'A POS'
   BLOOD_TYPE_A_NEG = 'A NEG'
   BLOOD_TYPE_UNIVERSAL_DONOR = 'O NEG'
@@ -26,7 +32,7 @@ class Donor
   field :blood_group, type: String
   field :email_address, type: String
   field :donor_card_id, type: String
-  validates_uniqueness_of :primary_phone_number
+
 
 
   def can_donate_now?
