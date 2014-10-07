@@ -6,16 +6,30 @@ class Emergency
   embeds_many :pending_matches, class_name: "Donor", store_as: 'pending_matches'
   embeds_many :contacted_matches, class_name: "Donor", store_as: 'contacted_matches'
 
-  field :details, type: String
+  
+  field :title, type: String
+  field :description, type: String
   field :sms_message_text, type: String
   field :created_by, type: String
-  field :donor_found, type: Boolean, default: false
-  field :donor_details, type: String
+  field :match_found, type: Boolean, default: false
+  field :match_details, type: String
   field :blood_group, type: String
+  field :status, type: String
 
-  after_create :populate_matches
+  #TODO: Add a EmergencyComments; so emergency has_many comments
+  
+  after_create :set_status_to_draft, :populate_matches
   
   BATCH_SIZE = 5
+  
+  STATUS_DRAFT = 'draft'
+  STATUS_ACTIVE = 'active'
+  STATUS_CLOSE = 'closed'
+  
+  def set_status_to_draft
+    self.status = STATUS_DRAFT
+    self.save
+  end
   
   def populate_matches
     # picks out a bunch of matches given criteria, and populates the pending matches list

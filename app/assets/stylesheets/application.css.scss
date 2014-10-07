@@ -10,8 +10,8 @@
  *
  *= require_self
  *= require_tree .
- *= require twitter/bootstrap
  *= require select2
  */
 
-@import "twitter/bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
