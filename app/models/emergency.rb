@@ -12,10 +12,20 @@ class Emergency
   field :donor_found, type: Boolean, default: false
   field :donor_details, type: String
   field :blood_group, type: String
+  field :status, type: String
 
-  after_create :populate_matches
+  after_create :set_status_to_draft, :populate_matches
   
   BATCH_SIZE = 5
+  
+  STATUS_DRAFT = 'draft'
+  STATUS_ACTIVE = 'active'
+  STATUS_CLOSE = 'closed'
+  
+  def set_status_to_draft
+    self.status = STATUS_DRAFT
+    self.save
+  end
   
   def populate_matches
     # picks out a bunch of matches given criteria, and populates the pending matches list
