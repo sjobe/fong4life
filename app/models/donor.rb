@@ -8,7 +8,7 @@ class Donor
   validates_uniqueness_of :primary_phone_number
   validates :primary_phone_number, :secondary_phone_number, length: {in: 7..13}
 
-
+  DEFAULT_COUNTRY_CODE = '220'
 
   BLOOD_TYPE_A_POS = 'A POS'
   BLOOD_TYPE_A_NEG = 'A NEG'
@@ -43,6 +43,11 @@ class Donor
     "#{first_name} #{last_name} | #{primary_phone_number}"
   end
   
-  
+  def send_sms_message(message_body)
+    number = primary_phone_number
+    number = "+#{COUNTRY_CODE}#{number}" unless number.start_with?('+')
+    
+    PhoneNumber.send_sms_message_to_number(message_body, number)
+  end
 
 end
