@@ -15,6 +15,8 @@ class Emergency
   field :match_details, type: String
   field :blood_group, type: String
   field :status, type: String
+  
+  validates_presence_of :title, :description, :blood_group
 
   #TODO: Add a EmergencyComments; so emergency has_many comments
   
