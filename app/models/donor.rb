@@ -34,7 +34,6 @@ class Donor
   field :donor_card_id, type: String
 
 
-
   def can_donate_now?
 
   end
@@ -43,11 +42,16 @@ class Donor
     "#{first_name} #{last_name} | #{primary_phone_number}"
   end
   
-  def send_sms_message(message_body)
-    number = primary_phone_number
-    number = "+#{COUNTRY_CODE}#{number}" unless number.start_with?('+')
+  def send_sms_message(message_body)    
+    if Rails.env == 'production'
+      number = primary_phone_number
+      number = "+#{COUNTRY_CODE}#{number}" unless number.start_with?('+')
+      PhoneNumber.send_sms_message_to_number(message_body, number)
+    else      
+      number = ENV['F4L_TESTING_NUMBERS'].split(',').sample 
+      PhoneNumber.send_sms_message_to_number("F4L Message from #{Rails.env} = #{message_body}", number)
+    end
     
-    PhoneNumber.send_sms_message_to_number(message_body, number)
   end
 
 end
