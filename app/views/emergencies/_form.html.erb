@@ -13,21 +13,21 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title , class: 'form-control'%>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :sms_message_text %><br>
-    <%= f.text_area :sms_message_text %>
+    <%= f.text_area :sms_message_text, class: 'form-control'%>
   </div>
   <div class="field">
     <%= f.label :blood_group %><br>
-    <%= f.select :blood_group, Donor::BLOOD_GROUPS, {include_blank: 'Select Blood Type'} %>
+    <%= f.select :blood_group, Donor::BLOOD_GROUPS, {include_blank: 'Select Blood Type'}, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save', class: 'btn btn-primary'%>
   </div>
 <% end %>
