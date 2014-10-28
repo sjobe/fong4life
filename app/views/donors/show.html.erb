@@ -1,54 +1,61 @@
-<p id="notice"><%= notice %></p>
+<h1>Donor :: <%= @donor.first_name  %> <%= @donor.last_name  %></h1>
+  <div class="row">
+    <div class="col-md-6">
+      Date of Birth: <%= formatted_date(@donor.date_of_birth, false) %>      
+    </div>
+    <div class="col-md-6">
+      Sex: <%= @donor.sex%> 
+    </div>
+  </div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @donor.first_name %>
-</p>
+<div class="row">
+    <div class="col-md-6">
+      Address: <%= @donor.address %>      
+    </div>
+    <div class="col-md-6">
+      Phone Number: <%= @donor.primary_phone_number %> 
+    </div>
+  </div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @donor.last_name %>
-</p>
+<div class="row">
+    <div class="col-md-6">
+      Secondary Phone Number: <%= @donor.secondary_phone_number %>     
+    </div>
+    <div class="col-md-6">
+      Blood Group: <%= @donor.blood_group %> 
+    </div>
+  </div>
 
-<p>
-  <strong>Date of birth:</strong>
-  <%= @donor.date_of_birth %>
-</p>
+<div class="row">
+    <div class="col-md-6">
+      Email Address: <%= @donor.email_address %>     
+    </div>
+    <div class="col-md-6">
+      Donor Card ID: <%= @donor.donor_card_id %> 
+    </div>
+  </div>
 
-<p>
-  <strong>Sex:</strong>
-  <%= @donor.sex %>
-</p>
+<h2>Donations</h2>
+<table class="table table-striped table-hover">
+<thead>
+    <tr>
+      <th>Date</th>
+      <th>Type</th>
+      <th></th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>Address:</strong>
-  <%= @donor.address %>
-</p>
+  <tbody>
+    <% @donor.donations.each do |donation| %>
+   
+      <tr>
+        <td><%= formatted_date(donation.created_at) %></td>
+        <td><%= donation.eventable_type %></td>
+        <td><%= link_to 'View Details', donation.eventable %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<p>
-  <strong>Primary phone number:</strong>
-  <%= @donor.primary_phone_number %>
-</p>
-
-<p>
-  <strong>Secondary phone number:</strong>
-  <%= @donor.secondary_phone_number %>
-</p>
-
-<p>
-  <strong>Blood group:</strong>
-  <%= @donor.blood_group %>
-</p>
-
-<p>
-  <strong>Email address:</strong>
-  <%= @donor.email_address %>
-</p>
-
-<p>
-  <strong>Donor card:</strong>
-  <%= @donor.donor_card_id %>
-</p>
-
-<%= link_to 'Edit', edit_donor_path(@donor) %> |
-<%= link_to 'Back', donors_path %>
+<%= link_to 'Edit', edit_donor_path(@donor), class: 'btn btn-primary' %> 
+<%= link_to 'Back', donors_path, class: 'btn btn-primary' %>
