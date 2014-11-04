@@ -1,0 +1,26 @@
+@import "../libs/settings";
+@import "../libs/mixins";
+
+.navbar-inverse {
+  background-color: $primary;
+  border-bottom: none;
+  line-height: 50px;
+  .navbar-nav > li > a {
+    color: #fff;
+    text-transform: uppercase;
+    @include novecento-bold;
+    line-height: 50px;
+    
+    &:hover {
+      background: $action-respond;
+    }
+  }
+  
+  .navbar-brand {
+    color: #fff;
+    text-indent:-9999px;
+    width: 172px;
+    height: 80px;
+    background: url("../images/logo.png");
+  } 
+}
