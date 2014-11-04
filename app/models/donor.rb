@@ -4,7 +4,7 @@ class Donor
   include Mongoid::Timestamps
   has_many :donations
 
-  validates_presence_of :first_name, :last_name, :date_of_birth, :sex, :address, :primary_phone_number, :blood_group, :donor_card_id
+  validates_presence_of :first_name, :last_name, :date_of_birth, :sex, :address, :primary_phone_number, :blood_group
   validates_uniqueness_of :primary_phone_number
   validates :primary_phone_number, :secondary_phone_number, length: {in: 7..13}
 

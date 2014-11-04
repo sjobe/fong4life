@@ -21,12 +21,19 @@ class Emergency
   #TODO: Add a EmergencyComments; so emergency has_many comments
   
   after_create :set_status_to_draft, :populate_matches
+  after_update :activate
   
   BATCH_SIZE = 5
   
   STATUS_DRAFT = 'draft'
   STATUS_ACTIVE = 'active'
   STATUS_CLOSE = 'closed'
+  
+  def activate
+    if status_was == STATUS_DRAFT && status == STATUS_ACTIVE
+      self.contact_matches
+    end
+  end
   
   def set_status_to_draft
     self.status = STATUS_DRAFT
@@ -42,6 +49,7 @@ class Emergency
     end
     # TODO: Fancy sorting happens here
     self.pending_matches = donors
+    self.save #TODO: Whi is this failing
   end
   
   def contact_matches(batch_size = BATCH_SIZE)
@@ -50,7 +58,7 @@ class Emergency
     count = 0
     while ((self.pending_matches.count > 0) && (count < batch_size)) do
       current_donor = self.pending_matches.pop
-      #      current_donor.contact(self) #TODO: SMS Sending here; need to implement
+      current_donor.send_sms_message(self.sms_message_text)    
       self.contacted_matches << current_donor
       count += 1
     end    

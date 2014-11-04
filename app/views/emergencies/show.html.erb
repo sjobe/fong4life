@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @emergency.title %>
@@ -15,5 +13,21 @@
   <%= @emergency.sms_message_text %>
 </p>
 
-<%= link_to 'Edit', edit_emergency_path(@emergency) %> |
-<%= link_to 'Back', emergencies_path %>
+<p>
+  <strong>Status:</strong>
+  <%= @emergency.status %>
+</p>
+
+<p>
+  <strong>Blood Group:</strong>
+  <%= @emergency.blood_group %>
+</p>
+<% if Emergency::STATUS_DRAFT == @emergency.status %>
+<%= link_to("Activate", emergency_path(@emergency, :status => Emergency::STATUS_ACTIVE), 
+  :method => :put, :confirm => "Are you sure ? This will send an SMS to the matching donors.", class: 'btn btn-danger') %>
+
+  <%= link_to 'Edit', edit_emergency_path(@emergency), class: 'btn btn-primary' %> |
+<% end %>
+
+
+<%= link_to 'Back', emergencies_path, class: 'btn btn-primary' %>
