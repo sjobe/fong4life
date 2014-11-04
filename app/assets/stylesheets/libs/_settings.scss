@@ -1,0 +1,27 @@
+// SET UP YOUR VARIABLES IN THIS FILE
+
+
+// Colours
+// ------------------------------------------------------------
+
+// Define your main colour palette
+
+$primary							: #FF573C;
+$secondary						: #2D3C4F;	
+$tertiary							: #2D3C4F;
+
+// Links
+$action								      : #64C376;
+$action-respond						  : #CC4E40;
+$secondary-action					  : $action-respond;
+$secondary-action-respond		: $action;
+
+
+// Fonts, measure, leading and typefaces
+// ------------------------------------------------------------
+
+// Fonts size and line height defaults for our calculations
+
+$base-font-size						: 16px; 				// Sets the browser default size. Shouldn't need to change this.
+$base-line-height					: 8px;					// Baseline grid. Set to a sensible, small size.
+$round-to-nearest-half-line			: false;  				// Round the line height to the nearest half line height. Off by default 

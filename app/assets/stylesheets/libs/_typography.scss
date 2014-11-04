@@ -1,0 +1,47 @@
+/* --------  Imported fonts -------- */
+
+@font-face {
+  font-family: 'NovecentowideBookRegular';
+  src: url("../fonts/Novecentowide-Book-webfont.eot");
+  src: url("../fonts/Novecentowide-Book-webfont.eot?#iefix") format("embedded-opentype"), 
+       url("../fonts/Novecentowide-Book-webfont.woff") format("woff"), 
+       url("../fonts/Novecentowide-Book-webfont.ttf") format("truetype"), 
+       url("../fonts/Novecentowide-Book-webfont.svg#NovecentowideBookRegular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NovecentowideLightBold';
+  src: url("../fonts/Novecentowide-Light-webfontt.eot");
+  src: url("../fonts/Novecentowide-Light-webfont.eot?#iefix") format("embedded-opentype"), 
+       url("../fonts/Novecentowide-Light-webfont.woff") format("woff"), 
+       url("../fonts/Novecentowide-Light-webfont.ttf") format("truetype"), 
+       url("../fonts/Novecentowide-Light-webfont.svg#NovecentowideLightBold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NovecentowideBookBold';
+  src: url("../fonts/Novecentowide-DemiBold-webfont.eot");
+  src: url("../fonts/Novecentowide-DemiBold-webfont.eot?#iefix") format("embedded-opentype"), 
+       url("../fonts/Novecentowide-DemiBold-webfont.woff") format("woff"), 
+       url("../fonts/Novecentowide-DemiBold-webfont.ttf") format("truetype"), 
+       url("../fonts/Novecentowide-DemiBold-webfont.svg#NovecentowideBookBold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NovecentowideMedium';
+  src: url("../fonts/Novecentowide-Medium-webfont.eot");
+  src: url("../fonts/Novecentowide-Medium-webfont.eot?#iefix") format("embedded-opentype"), 
+       url("../fonts/Novecentowide-Medium-webfont.woff") format("woff"), 
+       url("../fonts/Novecentowide-Medium-webfont.ttf") format("truetype"), 
+       url("../fonts/Novecentowide-Medium-webfont.svg#Novecentomedium") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Merriweather:400,700,700italic,400italic);

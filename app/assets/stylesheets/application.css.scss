@@ -13,5 +13,64 @@
  *= require select2
  */
 
+// Table of Contents
+
+// See mark-down file for how to use compass' rhythm and trailer/leader functions or check the compass documentation
+// -------------------------------------------------------------
+
+// ::Imports pre-render
+	//:: Reset
+	//:: Settings
+	//:: Mixins
+// ::Clearfix extends
+// ::Base styles
+
+// ::Layout styles 
+// ::Media queries 
+// ::State styles
+// ::Debugs  
+
+// ::Imports pre-render. Must be after reset 
+// ------------------------------------------------------------
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import "libs/settings";
+@import "libs/mixins";
+
+/* ::Clearfixs and extends. Use which suits best */
+/* ----------------------------------------------------------- */
+
+// CHOOSE YOUR CLEARFIX, OR YOU KNOW USE BOTH. WHATEVER, I'M NOT YOUR MOTHER
+
+// Use clearfix if you need general clearfixing
+//.clearfix 			{ @include clearfix; }
+
+// Use pie-clearfix if you need clearfixing that doesn't use overflow: hidden
+//.pie-clearfix 		{ @include pie-clearfix; }
+
+// Max width, for images etc... in RWD
+.max-width 			{ max-width: 100%; height: auto; }
+
+/* ::Base styles Almost exclusively single element selectors */
+/* ------------------------------------------------------------ */
+
+// Import base typography into the cascade (if required)
+@import "libs/typography"; 		
+
+// Import form styles into the cascade (if required)
+@import "libs/forms";			
+
+
+// -------------------------------------------------------------------------------------------------------
+
+// All the below can be removed if need be
+
+// -------------------------------------------------------------------------------------------------------
+
+
+/* ::Layout styles - Layouts hold one or more modules together. */
+/* ------------------------------------------------------------ */
+
+@import "componets/header";
