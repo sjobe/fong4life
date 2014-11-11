@@ -3,8 +3,8 @@ class Emergency
   include Mongoid::Timestamps
   #include Mongoid::Versioning
   has_one :donation, as: :eventable
-  embeds_many :pending_matches, class_name: "Donor", store_as: 'pending_matches'
-  embeds_many :contacted_matches, class_name: "Donor", store_as: 'contacted_matches'
+  has_and_belongs_to_many :pending_matches, class_name: "Donor", inverse_of: nil
+  has_and_belongs_to_many :contacted_matches, class_name: "Donor", inverse_of: nil
 
   
   field :title, type: String
@@ -48,8 +48,8 @@ class Emergency
       donors = Donor.in(blood_group: [self.blood_group, Donor::BLOOD_TYPE_UNIVERSAL_DONOR])
     end
     # TODO: Fancy sorting happens here
-    self.pending_matches = donors
-    self.save #TODO: Whi is this failing
+    donors.each {|donor| self.pending_matches << donor}
+    self.save 
   end
   
   def contact_matches(batch_size = BATCH_SIZE)
@@ -58,7 +58,8 @@ class Emergency
     count = 0
     while ((self.pending_matches.count > 0) && (count < batch_size)) do
       current_donor = self.pending_matches.pop
-      current_donor.send_sms_message(self.sms_message_text)    
+     # current_donor.send_sms_message(self.sms_message_text)  
+      puts "here #{self.pending_matches.count}"
       self.contacted_matches << current_donor
       count += 1
     end    
