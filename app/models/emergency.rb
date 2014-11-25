@@ -57,9 +57,11 @@ class Emergency
     # batch size and move them to the contacted matches list
     count = 0
     while ((self.pending_matches.count > 0) && (count < batch_size)) do
-      current_donor = self.pending_matches.pop
+      current_donor = self.pending_matches.first
+      self.pending_matches.delete Donor.find(self.pending_matches.first.id) # delete association
      # current_donor.send_sms_message(self.sms_message_text)  
       puts "here #{self.pending_matches.count}"
+      puts current_donor.first_name
       self.contacted_matches << current_donor
       count += 1
     end    
