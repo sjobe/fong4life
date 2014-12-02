@@ -1,3 +1,10 @@
+<div># Matches Found: <%= @emergency.num_matches %></div>
+
+<% if Emergency::STATUS_ACTIVE == @emergency.status %>
+<div># Matches Contacted: <%= @emergency.contacted_matches.count %></div>
+<div># Matches Pending: <%= @emergency.pending_matches.count %></div>
+<% end %>
+
 <p>
   <strong>Title:</strong>
   <%= @emergency.title %>

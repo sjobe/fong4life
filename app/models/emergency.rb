@@ -40,6 +40,10 @@ class Emergency
     self.save
   end
   
+  def num_matches
+    self.pending_matches.count + self.contacted_matches.count
+  end
+  
   def populate_matches
     # picks out a bunch of matches given criteria, and populates the pending matches list
     if self.blood_group == Donor::BLOOD_TYPE_UNIVERSAL_RECIPIENT 
@@ -57,6 +61,7 @@ class Emergency
     # batch size and move them to the contacted matches list
     count = 0
     while ((self.pending_matches.count > 0) && (count < batch_size)) do
+      puts "COUNT - #{count}"
       current_donor = self.pending_matches.first
       self.pending_matches.delete Donor.find(self.pending_matches.first.id) # delete association
      # current_donor.send_sms_message(self.sms_message_text)  
@@ -65,7 +70,7 @@ class Emergency
       self.contacted_matches << current_donor
       count += 1
     end    
-    self.save
+    #WARNING: DO NOT EVER CALL .save in HERE. Throws us into an infinite loop and potentially spams via SMS
   end
   
   def close_emergency(donor_found, donor_details)
