@@ -5,6 +5,7 @@
     <tr>
       <th>Title</th>
       <th>Date</th>
+      <th>Status</th>
     </tr>
   </thead>
 
@@ -13,6 +14,7 @@
       <tr>
         <td><%= link_to emergency.title, emergency  %></td>
         <td><%= formatted_date(emergency.created_at) %></td>
+        <td><%= emergency.status.capitalize %></td>
       </tr>
     <% end %>
   </tbody>

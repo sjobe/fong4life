@@ -18,10 +18,12 @@ class Emergency
 
   validates_presence_of :title, :description, :blood_group
   
+  attr_accessor :contact_next_batch
+  
   #TODO: Add a EmergencyComments; so emergency has_many comments
   
   after_create :set_status_to_draft, :populate_matches
-  after_update :activate
+  after_update :trigger_contact_matches
   
   BATCH_SIZE = 5
   
@@ -29,10 +31,8 @@ class Emergency
   STATUS_ACTIVE = 'active'
   STATUS_CLOSE = 'closed'
   
-  def activate
-    if status_was == STATUS_DRAFT && status == STATUS_ACTIVE
-      self.contact_matches
-    end
+  def trigger_contact_matches
+    self.contact_matches if (status_was == STATUS_DRAFT && status == STATUS_ACTIVE) || self.contact_next_batch
   end
   
   def set_status_to_draft
@@ -64,9 +64,7 @@ class Emergency
       puts "COUNT - #{count}"
       current_donor = self.pending_matches.first
       self.pending_matches.delete Donor.find(self.pending_matches.first.id) # delete association
-     # current_donor.send_sms_message(self.sms_message_text)  
-      puts "here #{self.pending_matches.count}"
-      puts current_donor.first_name
+      current_donor.send_sms_message(self.sms_message_text)  
       self.contacted_matches << current_donor
       count += 1
     end    
