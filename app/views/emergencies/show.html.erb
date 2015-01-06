@@ -30,11 +30,15 @@
   <%= @emergency.blood_group %>
 </p>
 <% if Emergency::STATUS_DRAFT == @emergency.status %>
-<%= link_to("Activate", emergency_path(@emergency, emergency: {:status => Emergency::STATUS_ACTIVE}), 
-  :method => :put, :confirm => "Are you sure ? This will send an SMS to the matching donors.", class: 'btn btn-danger') %>
+<%= link_to("Contact First Batch", emergency_path(@emergency, emergency: {:status => Emergency::STATUS_ACTIVE}), 
+    :method => :put, :confirm => "Are you sure ? This will send an SMS to the matching donors.", class: 'btn btn-danger') %>
 
-  <%= link_to 'Edit', edit_emergency_path(@emergency), class: 'btn btn-primary' %> |
+  <%= link_to 'Edit', edit_emergency_path(@emergency), class: 'btn btn-primary' %>
+<% end %>
+
+<% if Emergency::STATUS_ACTIVE == @emergency.status && @emergency.pending_matches.count > 0%>
+<%= link_to("Contact Next Batch", emergency_path(@emergency, emergency: {contact_next_batch: true}), 
+      :method => :put, :confirm => "Are you sure ? This will send an SMS to the matching donors.", class: 'btn btn-danger') %>
 <% end %>
 
 
-<%= link_to 'Back', emergencies_path, class: 'btn btn-primary' %>

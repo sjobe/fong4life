@@ -69,6 +69,6 @@ class EmergenciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def emergency_params
-      params.require(:emergency).permit(:title, :description, :sms_message_text, :blood_group, :status)
+      params.require(:emergency).permit(:title, :description, :sms_message_text, :blood_group, :status, :contact_next_batch)
     end
 end
