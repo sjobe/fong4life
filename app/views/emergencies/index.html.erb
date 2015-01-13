@@ -3,6 +3,7 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
+      <th>Created By</th>
       <th>Title</th>
       <th>Date</th>
       <th>Status</th>
@@ -12,6 +13,7 @@
   <tbody>
     <% @emergencies.sort { |x,y| y.created_at <=> x.created_at }.each do |emergency| %>
       <tr>
+        <td><%= emergency.created_by  %></td>
         <td><%= link_to emergency.title, emergency  %></td>
         <td><%= formatted_date(emergency.created_at) %></td>
         <td><%= emergency.status.capitalize %></td>
