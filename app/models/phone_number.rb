@@ -13,7 +13,7 @@ class PhoneNumber
       :body => message_body
     )
       MessageLog.create(env: Rails.env, type: MessageLog::TYPE_SMS, 
-      from: ENV['TWILIO_PHNONE_NUMBER'], to: to_number, message: message_body, status: status)
+      from: ENV['TWILIO_PHNONE_NUMBER'], to: to_number, message: message_body)
   end
 
 end
