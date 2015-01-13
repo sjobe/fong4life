@@ -8,6 +8,7 @@ class MessageLog
   field :from, type: String
   field :to, type: String
   field :message, type: String
+  field :status, type: String
   
   TYPE_SMS = 'sms'
   TYPE_EMAIL = 'email'
