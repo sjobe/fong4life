@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Created By</th>
       <th>Date</th>
       <th>Status</th>
     </tr>
@@ -13,6 +14,7 @@
     <% @emergencies.sort { |x,y| y.created_at <=> x.created_at }.each do |emergency| %>
       <tr>
         <td><%= link_to emergency.title, emergency  %></td>
+        <td><%= emergency.created_by  %></td>
         <td><%= formatted_date(emergency.created_at) %></td>
         <td><%= emergency.status.capitalize %></td>
       </tr>

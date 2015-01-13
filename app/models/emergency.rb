@@ -65,6 +65,7 @@ class Emergency
       current_donor = self.pending_matches.first
       self.pending_matches.delete Donor.find(self.pending_matches.first.id) # delete association
       current_donor.send_sms_message(self.sms_message_text)  
+      current_donor.update_attribute(:last_emergency_contact_date, Time.now)
       self.contacted_matches << current_donor
       count += 1
     end    

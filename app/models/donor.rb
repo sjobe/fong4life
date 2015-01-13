@@ -32,7 +32,8 @@ class Donor
   field :blood_group, type: String
   field :email_address, type: String
   field :donor_card_id, type: String
-
+  field :last_emergency_contact_date, type: DateTime 
+  field :last_reminder_message_date, type: DateTime 
 
   def can_donate_now?
 
@@ -46,12 +47,11 @@ class Donor
     if Rails.env == 'production'
       number = primary_phone_number
       number = "+#{COUNTRY_CODE}#{number}" unless number.start_with?('+')
-      PhoneNumber.send_sms_message_to_number(message_body, number)
     else      
       number = ENV['F4L_TESTING_NUMBERS'].split(',').sample 
-      PhoneNumber.send_sms_message_to_number("F4L Message from #{Rails.env} = #{message_body}", number)
+      message_body = "F4L Message from #{Rails.env} = #{message_body}"
     end
-    
+    PhoneNumber.send_sms_message_to_number(message_body, number)
   end
 
 end
