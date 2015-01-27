@@ -43,6 +43,10 @@ class Donor
     "#{first_name} #{last_name} | #{primary_phone_number}"
   end
   
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+  
   def send_sms_message(message_body)    
     if Rails.env == 'production'
       number = primary_phone_number
