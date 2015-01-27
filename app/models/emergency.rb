@@ -18,12 +18,12 @@ class Emergency
 
   validates_presence_of :title, :description, :blood_group
   
-  attr_accessor :contact_next_batch
+  attr_accessor :contact_next_batch, :donor_id
   
   #TODO: Add a EmergencyComments; so emergency has_many comments
   
   after_create :set_status_to_draft, :populate_matches
-  after_update :trigger_contact_matches
+  after_update :trigger_contact_matches, :close_emergency
   
   BATCH_SIZE = 5
   
@@ -33,6 +33,15 @@ class Emergency
   
   def trigger_contact_matches
     self.contact_matches if (status_was == STATUS_DRAFT && status == STATUS_ACTIVE) || self.contact_next_batch
+  end
+  
+  def close_emergency
+    if (status_was == STATUS_ACTIVE && status == STATUS_CLOSE) && self.donor_id.present?
+      donation = Donation.new
+      donation.donor = Donor.find(self.donor_id)
+      donation.eventable = self
+      donation.save
+    end
   end
   
   def set_status_to_draft
@@ -70,11 +79,6 @@ class Emergency
       count += 1
     end    
     #WARNING: DO NOT EVER CALL .save in HERE. Throws us into an infinite loop and potentially spams via SMS
-  end
-  
-  def close_emergency(donor_found, donor_details)
-    # set donor found
-    # set donor_details if any
   end
   
 end

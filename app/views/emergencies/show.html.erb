@@ -40,6 +40,10 @@
   <p>
   <strong>Donor Found:</strong>
     <%= @emergency.match_found ? 'Yes' : 'No' %>
+    <% if @emergency.donation %>
+      <br/>
+      <%= link_to "View Donor (#{@emergency.donation.donor.full_name})", @emergency.donation.donor %>
+    <% end %>
 </p>
   <p>
   <strong>Details:</strong>
@@ -53,7 +57,7 @@
 <%= link_to("<span class='glyphicon glyphicon-envelope'></span> Contact First Batch".html_safe, emergency_path(@emergency, emergency: {:status => Emergency::STATUS_ACTIVE}), 
     :method => :put, :confirm => "Are you sure ? This will send an SMS to the matching donors.", class: 'btn btn-warning') %>
 
-  <%= link_to 'Edit', edit_emergency_path(@emergency), class: 'btn btn-primary' %>
+<%= link_to '<span class="glyphicon glyphicon-edit"></span> Edit'.html_safe, edit_emergency_path(@emergency), class: 'btn btn-primary' %>
 <% end %>
 
 <% if Emergency::STATUS_ACTIVE == @emergency.status && @emergency.pending_matches.count > 0%>
@@ -62,31 +66,4 @@
 <%= link_to("<span class='glyphicon glyphicon-remove'></span> Close Emergency".html_safe,'#', class: 'btn btn-danger', 'data-toggle' => "modal", 'data-target'=>"#closeEmergencyModal") %>
 <% end %>
 
-<div class="modal fade" id="closeEmergencyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <%= form_for(@emergency) do |f| %>
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Close Emergency</h4>
-      </div>
-      <div class="modal-body">
-          <div class="form-group">
-            <label for="recipient-name" class="control-label">Was a donor found:</label>
-            <%= f.select :match_found, [['Yes', true], ['No', false]], {}, class: 'form-control' %>
-          </div>
-          <div class="form-group">
-            <label for="message-text" class="control-label">Details:</label>
-            <%= f.text_area :match_details, class: 'form-control'%>
-            <%= f.hidden_field :status, value: Emergency::STATUS_CLOSE %>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <%= f.submit "Save".html_safe, class: 'btn btn-success'%>
-      </div>
-    </div>
-  </div>
-  <% end %>
-</div>
-
+<%= render 'close_emergency_modal' %>
