@@ -40,7 +40,7 @@ class Donor
   field :last_reminder_message_date, type: DateTime 
 
   def can_donate_now?
-
+    [true, false].sample
   end
   
   def autocomplete_text

@@ -1,0 +1,16 @@
+.page--title {
+  display: inline;
+}
+.page--nav {
+  border-bottom: 2px solid #eee;
+  padding: 1em 0;
+  overflow: hidden;
+  text-align: center;
+  
+  .page--nav__left {
+    float: left;
+  }
+  .page--nav__right {
+    float: right;
+  }
+}
