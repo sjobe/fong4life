@@ -22,6 +22,10 @@ class Donor
   BLOOD_GROUPS = [BLOOD_TYPE_A_POS, BLOOD_TYPE_A_NEG, BLOOD_TYPE_B_POS, 
                  BLOOD_TYPE_B_NEG, BLOOD_TYPE_O_POS, BLOOD_TYPE_UNIVERSAL_DONOR, 
                   BLOOD_TYPE_AB_POS, BLOOD_TYPE_UNIVERSAL_RECIPIENT]
+  SEX_MALE = 'M'
+  SEX_FEMALE = 'F'
+  SEX = [SEX_MALE, SEX_FEMALE]
+
   field :first_name, type: String
   field :last_name, type: String
   field :date_of_birth, type: Date
@@ -36,7 +40,7 @@ class Donor
   field :last_reminder_message_date, type: DateTime 
 
   def can_donate_now?
-
+    [true, false].sample
   end
   
   def autocomplete_text

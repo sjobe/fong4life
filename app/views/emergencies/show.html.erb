@@ -1,40 +1,56 @@
-<div># Matches Found: <%= @emergency.num_matches %></div>
+<div class="page--nav">
+  <div class="page--nav__left">
+    <%= link_to("<span class='glyphicon glyphicon-chevron-left'></span> Back".html_safe, emergencies_path, class: 'btn btn-primary') %>
+  </div>
+  <div class="page--nav__right">
+    <% if Emergency::STATUS_ACTIVE == @emergency.status && @emergency.pending_matches.count > 0%>
+    <%= link_to("<span class='glyphicon glyphicon-remove'></span> Close Emergency".html_safe,'#', class: 'btn btn-danger', 'data-toggle' => "modal", 'data-target'=>"#closeEmergencyModal") %>
+    <% end %>
+  </div>
+  <h1 class="page--title"><%= @emergency.title %></h1>
+</div>
+       <div class="row">
+  <div class="col-md-8 emergency-">
+    <h2>Emergency Information</h2>
+    <dl>
+      <dt><strong>Details:</strong></dt>
+      <dd><%= @emergency.description %></dd>
 
-<% if Emergency::STATUS_ACTIVE == @emergency.status %>
-<div># Matches Contacted: <%= @emergency.contacted_matches.count %></div>
-<div># Matches Pending: <%= @emergency.pending_matches.count %></div>
-<% end %>
+      <dt>Sms message text:</dt>
+      <dd><%= @emergency.sms_message_text %></dd>
 
-<p>
-  <strong>Title:</strong>
-  <%= @emergency.title %>
-</p>
+      <dt>Status:</dt>
+      <dd><%= @emergency.status %></dd>
 
-<p>
-  <strong>Details:</strong>
-  <%= @emergency.description %>
-</p>
+      <dt>Blood Group:</dt>
+      <dd><%= @emergency.blood_group %><dd>
 
-<p>
-  <strong>Sms message text:</strong>
-  <%= @emergency.sms_message_text %>
-</p>
+      <dt>Created by:</dt>
+      <dd><%= @emergency.created_by %></dd>
+    </dl>
+  </div>
+  <div class="col-md-4 emergency-meta">
+    <h2>Matches Found</h2>
+    <ul>
+      <li>Found: <%= @emergency.num_matches %></li>
+      <% if Emergency::STATUS_ACTIVE == @emergency.status %>
+      <li>Contacted: <%= @emergency.contacted_matches.count %></li>
+      <li>Pending: <%= @emergency.pending_matches.count %></li>
+      <% end %>
+    </ul>
+    <% if Emergency::STATUS_ACTIVE == @emergency.status && @emergency.pending_matches.count > 0%>
+    <%= link_to("<span class='glyphicon glyphicon-envelope'></span> Contact Next Batch".html_safe, emergency_path(@emergency, emergency: { contact_next_batch: true }), 
+            :method => :put, :confirm => "Are you sure ? This will send an SMS to the matching donors.", class: 'btn btn-warning') %>
+    <% end %>
+    <% if Emergency::STATUS_DRAFT == @emergency.status %>
+    <%= link_to("<span class='glyphicon glyphicon-envelope'></span> Contact First Batch".html_safe, emergency_path(@emergency, emergency: {:status => Emergency::STATUS_ACTIVE}), 
+        :method => :put, :confirm => "Are you sure ? This will send an SMS to the matching donors.", class: 'btn btn-warning') %>
 
-<p>
-  <strong>Status:</strong>
-  <%= @emergency.status %>
-</p>
-
-<p>
-  <strong>Blood Group:</strong>
-  <%= @emergency.blood_group %>
-</p>
-<p>
-    <strong>Created by:</strong>
-  <%= @emergency.created_by %>
-</p>
-
-<hr/>
+    <%= link_to '<span class="glyphicon glyphicon-edit"></span> Edit'.html_safe, edit_emergency_path(@emergency), class: 'btn btn-primary' %>
+    <% end %>
+    
+  </div>
+</div>
 
 <% if Emergency::STATUS_CLOSE == @emergency.status %>
   <p>
@@ -50,20 +66,4 @@
     <%= @emergency.match_details %>
 </p>
 <% end %>
-
-<%= link_to("<span class='glyphicon glyphicon-chevron-left'></span> Back".html_safe, emergencies_path, class: 'btn btn-primary') %>
-
-<% if Emergency::STATUS_DRAFT == @emergency.status %>
-<%= link_to("<span class='glyphicon glyphicon-envelope'></span> Contact First Batch".html_safe, emergency_path(@emergency, emergency: {:status => Emergency::STATUS_ACTIVE}), 
-    :method => :put, :confirm => "Are you sure ? This will send an SMS to the matching donors.", class: 'btn btn-warning') %>
-
-<%= link_to '<span class="glyphicon glyphicon-edit"></span> Edit'.html_safe, edit_emergency_path(@emergency), class: 'btn btn-primary' %>
-<% end %>
-
-<% if Emergency::STATUS_ACTIVE == @emergency.status && @emergency.pending_matches.count > 0%>
-<%= link_to("<span class='glyphicon glyphicon-envelope'></span> Contact Next Batch".html_safe, emergency_path(@emergency, emergency: { contact_next_batch: true }), 
-        :method => :put, :confirm => "Are you sure ? This will send an SMS to the matching donors.", class: 'btn btn-warning') %>
-<%= link_to("<span class='glyphicon glyphicon-remove'></span> Close Emergency".html_safe,'#', class: 'btn btn-danger', 'data-toggle' => "modal", 'data-target'=>"#closeEmergencyModal") %>
-<% end %>
-
 <%= render 'close_emergency_modal' %>

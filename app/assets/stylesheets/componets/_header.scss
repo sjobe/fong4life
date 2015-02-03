@@ -3,7 +3,7 @@
 
 .navbar-inverse {
   background-color: $primary;
-  border-bottom: none;
+  border-bottom: 10px solid #eee;
   line-height: 50px;
   .navbar-nav > li > a {
     color: #fff;
@@ -23,4 +23,17 @@
     height: 80px;
     background: url("../images/logo.png");
   } 
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  background: none;
+}
+
+footer {
+  padding: 2em 0;
+  background: #191818;
+  border-top: 10px solid #EEEEEE;
+  text-align: center;
+  text-transform: uppercase;
 }
