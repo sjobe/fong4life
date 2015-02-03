@@ -25,7 +25,7 @@
   </div>
   <div class="field">
     <%= f.label :sex %><br>
-    <%= f.select :sex,%w{M F}, {include_blank: true}, class: 'form-control' %>
+    <%= f.select :sex, Donor::SEX, {include_blank: true}, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :address %><br>
