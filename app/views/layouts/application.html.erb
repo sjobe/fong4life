@@ -11,62 +11,77 @@
 </head>
 
 <body>
+<section class="main-wrapper"> 
+ <!--
+  <form class="navbar-form navbar-right" style='display: none'>
+                <div class="form-group">
+                  <input type="text" placeholder="Email" class="form-control">
+                </div>
+                <div class="form-group">
+                  <input type="password" placeholder="Password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">Sign in</button>
+              </form>
+  -->
+  
+  
+  <!-- main container to views -->
+  <div class="body">
+    <div class="container-fluid rubix-grid">
+      <nav class="navbar navbar-default navbar-fixed-top" id="nav-header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-6 col-sm-8">
+            </div>
+            <div class="col-xs-6 col-sm-4">
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="alert-message">
+        <%= flash[:notice]%>
+        </div>
+      </div>
 
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Fong4life</a>
+      <%= yield %>
+      
+    </div> <!-- /container -->
+  </div>
+  <!-- footer -->
+  <footer>
+    <div class="container-fluid rubix-grid text-center">
+      <p>&copy; Fong4Life 2014</p>
     </div>
-    <div class="navbar-collapse collapse">
-      <% if current_user.present? %>
-        <ul class="nav navbar-nav">
-          <li><a href="/blood_drives">Blood Drives</a></li>
-          <li><a href="/emergencies">Emergencies</a></li>
-          <li><a href="/donors">Donors</a></li>
-        </ul>
-      <% end %>
-      <div id="user-widget" class='navbar-form navbar-right'>
+  </footer>
+  
+  <!-- sidebar -->
+  <aside id="sidebar" class="sidebar">
+    <!--logo start-->
+     <a class="brand" href="/">
+         Fong4Life
+    </a>                   
+    <div class="sidebar-container">
+     <div id="user-widget" class="user-options">
         <% if current_user %>
-          Welcome <strong><%= current_user.name %></strong>!
+         <strong><%= current_user.name %></strong>
           <%= link_to "Sign out", signout_path, id: "sign_out" %>
         <% else %>
           <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
         <% end %>
       </div>
-      <form class="navbar-form navbar-right" style='display: none'>
-        <div class="form-group">
-          <input type="text" placeholder="Email" class="form-control">
-        </div>
-        <div class="form-group">
-          <input type="password" placeholder="Password" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-success">Sign in</button>
-      </form>
-    </div><!--/.navbar-collapse -->
-  </div>
-</div>
-
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <div class="container">
-
-  <div class="alert-message">
-  <%= flash[:notice]%>
-  </div>
-  </div>
-</div>
-
-<div class="container">
-      <%= yield %>
-</div> <!-- /container -->
-<footer>
-  <p>&copy; Fong4Life 2014</p>
-</footer>
+     <% if current_user.present? %>
+        <ul class="nav">
+          <li><a href="/blood_drives">Blood Drives</a></li>
+          <li><a href="/emergencies">Emergencies</a></li>
+          <li><a href="/donors">Donors</a></li>
+        </ul>
+      <% end %>
+      
+    </div>
+  </aside>
+</section>
 <%= javascript_include_tag "application" %>
 <!-- Bootstrap core JavaScript
 ================================================== -->
