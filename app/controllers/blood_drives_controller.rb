@@ -4,7 +4,11 @@ class BloodDrivesController < ApplicationController
   # GET /blood_drives
   # GET /blood_drives.json
   def index
-    @blood_drives = BloodDrive.all
+    #@blood_drives = BloodDrive.all
+    @upcoming_drives = BloodDrive.where(:date.gt => DateTime.now.at_beginning_of_day)
+    @past_drives = BloodDrive.where(:date.lt => DateTime.now.at_beginning_of_day)
+    @current_drives = BloodDrive.where(:date => DateTime.now.at_beginning_of_day)
+
   end
 
   # GET /blood_drives/1
