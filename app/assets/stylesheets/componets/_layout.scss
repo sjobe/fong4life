@@ -1,0 +1,59 @@
+@import "../libs/settings";
+@import "../libs/mixins";
+ 
+#sidebar {
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  position: fixed;
+  overflow: hidden;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  right: 0;
+  width: 250px;
+  background: #F6F6F6;
+}
+  .sidebar-container {
+    bottom: 0;
+    width: 250px;
+    overflow: hidden;
+  }
+
+  .sidebar-container .nav a{
+    display: block;
+    padding: 25px;
+    border-bottom: 1px solid #E7E7E7;
+  }
+
+  .brand {
+    height: 75px;
+    background: $primary;
+    width: 250px;
+    display: block;
+  }
+  .user-options {
+    background: #E7E7E7;
+    color: #727272;
+    padding:25px;
+  }
+  #nav-header {
+    height: 75px;
+    background: #1B1E25;
+    border: none;
+  }
+
+  .jumbotron {
+    margin-bottom: 0;
+    background: none;
+  }
+
+footer {
+  padding: 10px;
+  position: relative;
+  color: #CCD6DF;
+  background: #89949B;
+}
+
+.body,header,#nav-header, footer {
+   margin-right: 250px;
+}

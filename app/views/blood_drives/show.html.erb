@@ -1,5 +1,23 @@
-<h1>Blood Drive :: <%= @blood_drive.location %> :: <%= formatted_date(@blood_drive.date)%></h1>
-<p class="jumbotron">
+<nav class="navbar navbar-default navbar-fixed-top" id="nav-header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-6 col-sm-8">
+        <h1><%= @blood_drive.location %></h1> 
+        <p class="meta"><%= formatted_date(@blood_drive.date)%></p>
+      </div>
+      <div class="col-xs-6 col-sm-4">
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="alert-message">
+  <%= flash[:notice]%>
+  </div>
+</div>
+
+<p>
   <%= @blood_drive.description %>
 </p>
 

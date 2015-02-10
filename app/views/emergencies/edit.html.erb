@@ -1,6 +1,20 @@
-<h1>Editing emergency</h1>
-
+<nav class="navbar navbar-default navbar-fixed-top" id="nav-header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-6 col-sm-8">
+        <h1>Editing emergency</h1>
+      </div>
+      <div class="col-xs-6 col-sm-4">
+        <%= link_to 'Back', emergencies_path %>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="alert-message">
+  <%= flash[:notice]%>
+  </div>
+</div>
 <%= render 'form' %>
-
-<%= link_to 'Show', @emergency %> |
-<%= link_to 'Back', emergencies_path %>
+<%= link_to 'Show', @emergency %>
