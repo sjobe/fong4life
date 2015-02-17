@@ -40,7 +40,15 @@ class Donor
   field :last_reminder_message_date, type: DateTime 
 
   def can_donate_now?
-    [true, false].sample
+    !last_donation.present? || (last_donation.present? && can_donate?(last_donation.created_at))
+  end
+    
+  def can_donate?(last_donation_date)
+   (SEX_MALE == sex && last_donation_date < 3.months.ago) || (SEX_FEMALE == sex && last_donation_date < 6.months.ago)
+  end
+  
+  def last_donation
+    self.donations.order_by(created_at: 'asc').last
   end
   
   def autocomplete_text
@@ -49,6 +57,20 @@ class Donor
   
   def full_name
     "#{first_name} #{last_name}"
+  end
+  
+  def send_reminder
+    reminder_message = "Hello #{self.full_name}.\n You haven't donated since ..., please go to RVH or similar"
+    upcoming = BloodDrive.where(:date.gt => DateTime.now.at_beginning_of_day)
+    if upcoming.count > 0 
+      reminder_message = "Hello #{self.full_name}.\n There will be a F4L blood drive .... please show up. see below for details"
+      upcoming.all.each do |blood_drive|  
+        reminder_message += "#{blood_drive.location} - #{blood_drive.date.strftime('%A, %d %b %Y, %l:%M %p')}\n"
+      end
+    end
+  puts reminder_message
+    #self.send_sms_message(reminder_message)
+    #    current_donor.update_attribute(:last_reminder_date, Time.now)
   end
   
   def send_sms_message(message_body)    
