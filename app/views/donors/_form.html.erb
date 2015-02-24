@@ -12,27 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %><br>
+    <%= f.label :first_name, class: 'required' %><br>
     <%= f.text_field :first_name, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br>
+    <%= f.label :last_name, class: 'required' %><br>
     <%= f.text_field :last_name, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :date_of_birth %><br>
+    <%= f.label :date_of_birth, class: 'required' %><br>
     <%= f.date_field :date_of_birth, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :sex %><br>
+    <%= f.label :sex, class: 'required' %><br>
     <%= f.select :sex, Donor::SEX, {include_blank: true}, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :address %><br>
+    <%= f.label :address, class: 'required' %><br>
     <%= f.text_field :address, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :primary_phone_number %><br>
+    <%= f.label :primary_phone_number, class: 'required' %><br>
     <%= f.text_field :primary_phone_number, class: 'form-control' %>
   </div>
   <div class="field">
@@ -40,7 +40,7 @@
     <%= f.text_field :secondary_phone_number, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :blood_group %><br>
+    <%= f.label :blood_group, class: 'required' %><br>
     <%= f.select :blood_group, Donor::BLOOD_GROUPS, {include_blank: true}, class: 'form-control' %>
   </div>
   <div class="field">

@@ -4,8 +4,10 @@
       <th>Name</th>
       <th>Address</th>
       <th>Primary Number</th>
-      <th>Last Emergency Contact Date</th>
-      <th>Last Reminder Date</th>
+      <% if !defined? blood_drive %>
+        <th>Last Emergency Contact Date</th>
+        <th>Last Reminder Date</th>
+      <% end %>
       <th></th>
     </tr>
   </thead>
@@ -17,8 +19,10 @@
         <td><%= link_to "#{donor.first_name} #{donor.last_name}", donor %></td>
         <td><%= donor.address %></td>
         <td><%= donor.primary_phone_number %></td>
+        <% if !defined? blood_drive %>        
         <td><%= formatted_date(donor.last_emergency_contact_date, false) if donor.last_emergency_contact_date  %></td>
         <td><%= formatted_date(donor.last_reminder_message_date, false) if donor.last_reminder_message_date %></td>
+        <% end %>
         <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
         <% if defined? blood_drive %>
         <td><%= link_to 'Remove', delete_donor_blood_drife_path(donor_id: donor.id, id: blood_drive.id) %></td>
