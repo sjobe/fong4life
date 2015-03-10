@@ -38,7 +38,8 @@ class Donor
   field :donor_card_id, type: String
   field :last_emergency_contact_date, type: DateTime 
   field :last_reminder_message_date, type: DateTime 
-
+  field :created_by_user_id, type: BSON::ObjectId
+  
   def can_donate_now?
     !last_donation.present? || (last_donation.present? && can_donate?(last_donation.created_at))
   end
