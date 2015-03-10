@@ -25,6 +25,7 @@ class DonorsController < ApplicationController
   # POST /donors.json
   def create
     @donor = Donor.new(donor_params)
+    @donor.created_by_user_id = current_user.id
     donor_saved = @donor.save
     donation_saved = false
 
