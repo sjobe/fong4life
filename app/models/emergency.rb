@@ -15,7 +15,9 @@ class Emergency
   field :match_details, type: String
   field :blood_group, type: String
   field :status, type: String
-
+  field :contact_phone_number, type: String
+  field :hospital_name, type: String
+  
   validates_presence_of :title, :description, :blood_group
   
   attr_accessor :contact_next_batch, :donor_id
@@ -31,6 +33,12 @@ class Emergency
   STATUS_ACTIVE = 'active'
   STATUS_CLOSE = 'closed'
   
+  SMS_TEMPLATE = "Urgent!! Blood donation needed. You are a match, please contact ::CONTACT_PHONE_NUMBER:: or go to ::HOSPITAL_NAME:: as soon as possible"
+
+  def generated_sms_message
+    SMS_TEMPLATE.gsub('::CONTACT_PHONE_NUMBER::', self.contact_phone_number).gsub('::HOSPITAL_NAME::', self.hospital_name)
+  end
+
   def trigger_contact_matches
     self.contact_matches if (status_was == STATUS_DRAFT && status == STATUS_ACTIVE) || self.contact_next_batch
   end
@@ -73,7 +81,7 @@ class Emergency
       puts "COUNT - #{count}"
       current_donor = self.pending_matches.first
       self.pending_matches.delete Donor.find(self.pending_matches.first.id) # delete association
-      current_donor.send_sms_message(self.sms_message_text)  
+      current_donor.send_sms_message(generated_sms_message)  
       current_donor.update_attribute(:last_emergency_contact_date, Time.now)
       self.contacted_matches << current_donor
       count += 1
