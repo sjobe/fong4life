@@ -26,6 +26,7 @@ class EmergenciesController < ApplicationController
   def create
     @emergency = Emergency.new(emergency_params)
     @emergency.created_by = current_user.name
+    @emergency.sms_message_text = @emergency.generated_sms_message
     respond_to do |format|
       if @emergency.save
         format.html { redirect_to @emergency, notice: 'Emergency was successfully created.' }
@@ -69,6 +70,6 @@ class EmergenciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def emergency_params
-      params.require(:emergency).permit(:title, :description, :sms_message_text, :blood_group, :status, :contact_next_batch, :match_found, :match_details, :donor_id)
+      params.require(:emergency).permit(:title, :description, :sms_message_text, :blood_group, :status, :contact_next_batch, :match_found, :match_details, :donor_id, :contact_phone_number, :hospital_name)
     end
 end

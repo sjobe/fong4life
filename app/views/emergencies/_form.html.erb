@@ -20,9 +20,14 @@
     <%= f.text_area :description, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :sms_message_text %><br>
-    <%= f.text_area :sms_message_text, class: 'form-control'%>
+    <%= f.label :hospital_name %>
+    <%= f.text_field :hospital_name, class: 'form-control' %>
   </div>
+  <div class="field">
+    <%= f.label :contact_phone_number %>
+    <%= f.text_field :contact_phone_number, class: 'form-control' %>
+  </div>
+  
   <div class="field">
     <%= f.label :blood_group %><br>
     <%= f.select :blood_group, Donor::BLOOD_GROUPS, {include_blank: 'Select Blood Type'}, class: 'form-control' %>
