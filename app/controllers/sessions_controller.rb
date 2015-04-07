@@ -3,7 +3,11 @@ class SessionsController < ApplicationController
   
   def create
     user = User.from_omniauth(env["omniauth.auth"])
+  rescue => error
+    flash[:error] = "You need an invitation to access this site."
+  else
     session[:user_id] = user.id
+  ensure   
     redirect_to root_url
   end
 
