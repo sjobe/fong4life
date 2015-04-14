@@ -6,10 +6,20 @@ class User
   field :email, type: String
   field :oauth_token, type: String
   field :oauth_expires_at, type: DateTime
+  field :admin, type: Boolean
+  field :data_entry, type: Boolean
+  field :event_manager, type: Boolean
+  field :emergency_manager, type: Boolean
   
   before_validation :whitelisted
   
   AUTHORIZED_USERS = ENV['F4L_AUTHORIZED_USERS'].split(',')
+
+  ROLE_ADMIN = 'admin'
+  ROLE_DATA_ENTRY = 'data_entry'
+  ROLE_EVENT_MANAGER = 'event_manager'
+  ROLE_EMERGENCY_MANAGER = 'emergency_manager'
+  ROLES = [ROLE_ADMIN, ROLE_DATA_ENTRY, ROLE_EMERGENCY_MANAGER, ROLE_EVENT_MANAGER]
   
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
