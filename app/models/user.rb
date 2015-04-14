@@ -9,7 +9,7 @@ class User
   
   before_validation :whitelisted
   
-  AUTHORIZED_USERS = %w{alagiboy@gmail.com serignjobe@gmail.com oumiejawo@gmail.com}
+  AUTHORIZED_USERS = ENV['F4L_AUTHORIZED_USERS'].split(',')
   
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
