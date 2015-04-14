@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def create
     user = User.from_omniauth(env["omniauth.auth"])
   rescue => error
-    flash[:error] = "You need an invitation to access this site."
+    flash[:error] = "You don't have access to the system."
   else
     session[:user_id] = user.id
   ensure   
