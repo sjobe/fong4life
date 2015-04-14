@@ -16,16 +16,15 @@ gem 'mongoid', github: 'mongoid/mongoid'
 gem 'mongoid-versioning'
 gem 'bson_ext'
 gem 'cancancan', '~> 1.10' # For authorization/permissions stuff
-
-group :doc do
-  gem 'sdoc', require: false # bundle exec rake doc:rails generates the API under doc/api.
-end
-
 gem 'jquery-rails'
 gem 'omniauth'
 gem "omniauth-google-oauth2"
 gem 'omniauth-facebook'
 gem 'select2-rails'
+
+group :doc do
+  gem 'sdoc', require: false # bundle exec rake doc:rails generates the API under doc/api.
+end
 
 group :development, :test do
   gem 'rspec-rails'
