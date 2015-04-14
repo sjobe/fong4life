@@ -2,42 +2,23 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
-
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.0' # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
-
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-
-# Use compass to help with mixins and file finding
-gem 'compass'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
-
+gem 'uglifier', '~> 1.3.0' # Use Uglifier as compressor for JavaScript assets
+gem 'coffee-rails', '~> 4.0.0' # Use CoffeeScript for .js.coffee assets and views
+gem 'compass' # Use compass to help with mixins and file finding
+gem 'jbuilder', '~> 1.2' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'twilio-ruby'
-
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'mongoid-versioning'
-
 gem 'bson_ext'
+gem 'cancancan', '~> 1.10' # For authorization/permissions stuff
 
 group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+  gem 'sdoc', require: false # bundle exec rake doc:rails generates the API under doc/api.
 end
 
 gem 'jquery-rails'
