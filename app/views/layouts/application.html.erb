@@ -57,9 +57,15 @@
       </div>
      <% if current_user.present? %>
         <ul class="nav">
-          <li><a href="/blood_drives">Blood Drives</a></li>
-          <li><a href="/emergencies">Emergencies</a></li>
-          <li><a href="/donors">Donors</a></li>
+          <% if can? :read, BloodDrive %>
+            <li><a href="/blood_drives">Blood Drives</a></li>
+          <% end %>
+          <% if can? :read, Emergency %>
+            <li><a href="/emergencies">Emergencies</a></li>
+          <% end %>
+          <% if can? :read, Donor %>
+            <li><a href="/donors">Donors</a></li>
+          <% end %>
         </ul>
       <% end %>
       
