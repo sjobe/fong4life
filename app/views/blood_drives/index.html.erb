@@ -5,8 +5,9 @@
         <h1>Blood Drives</h1>
       </div>
       <div class="col-xs-6 col-sm-4">
-        <%= link_to 'Create Blood Drive', new_blood_drive_path, class: 'btn btn-warning' %>
-
+        <% if can? :create, BloodDrive %>
+          <%= link_to 'Create Blood Drive', new_blood_drive_path, class: 'btn btn-warning' %>
+        <% end %>
       </div>
     </div>
   </div>
