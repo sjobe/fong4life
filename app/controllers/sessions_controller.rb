@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :check_login
+  skip_load_and_authorize_resource
   
   def create
     user = User.from_omniauth(env["omniauth.auth"])
