@@ -5,7 +5,7 @@
         <h1>Blood Drives</h1>
       </div>
       <div class="col-xs-6 col-sm-4">
-        <%= link_to 'Create Blood Drive', new_blood_drife_path, class: 'btn btn-warning' %>
+        <%= link_to 'Create Blood Drive', new_blood_drive_path, class: 'btn btn-warning' %>
 
       </div>
     </div>
@@ -35,7 +35,7 @@
         <td><%= blood_drive.location %></td>
         <td><%= formatted_date(blood_drive.date) %></td>
         <td><%= link_to 'Show', blood_drive %></td>
-        <td><%= link_to 'Edit', edit_blood_drife_path(blood_drive) %></td>
+        <td><%= link_to 'Edit', edit_blood_drive_path(blood_drive) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -59,7 +59,7 @@
         <td><%= blood_drive.location %></td>
         <td><%= formatted_date(blood_drive.date) %></td>
         <td><%= link_to 'Show', blood_drive %></td>
-        <td><%= link_to 'Edit', edit_blood_drife_path(blood_drive) %></td>
+        <td><%= link_to 'Edit', edit_blood_drive_path(blood_drive) %></td>
       </tr>
     <% end %>
   </tbody>
