@@ -13,7 +13,7 @@ class User
   
   before_validation :whitelisted
   
-  AUTHORIZED_USERS = ENV['F4L_AUTHORIZED_USERS'].split(',')
+  AUTHORIZED_USERS = (ENV['F4L_AUTHORIZED_USERS'] || '').split(',')
 
   ROLE_ADMIN = 'admin'
   ROLE_DATA_ENTRY = 'data_entry'
