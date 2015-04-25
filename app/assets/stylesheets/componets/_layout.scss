@@ -29,7 +29,12 @@
     height: 75px;
     background: $primary;
     width: 250px;
+    line-height: 4;
     display: block;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
   }
   .user-options {
     background: #E7E7E7;
@@ -41,7 +46,9 @@
     background: #1B1E25;
     border: none;
   }
-
+h1 {
+      color: #ffffff;
+}                   
   .jumbotron {
     margin-bottom: 0;
     background: none;
@@ -57,3 +64,92 @@ footer {
 .body,header,#nav-header, footer {
    margin-right: 250px;
 }
+.user-options .user-profile {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.emergency- h2, .emergency-meta h2{
+  margin-left: 12px;
+}
+.emergency- dd {
+  margin: 10px auto;
+}
+/* BTN STYLES */
+
+  .btn-primary, .btn-warning, .btn-default{
+
+      padding: 8px 20px;
+      font-size: 14px;
+      text-transform: uppercase;
+      border-radius: 0;
+      margin: 12px;
+  }
+  .btn-danger {
+      color: white;
+      background-color: #cb100a;
+      border-color: #cb100a;
+      padding: 12px 50px;
+      font-size: 14px;
+      text-transform: uppercase;
+      border-radius: 0;
+  }
+  .header-btn{
+      top: 12px;
+  }
+  .btn-back {
+    color: white;
+    background-color: #89949B;
+    border-color: #454B51;
+    padding: 10px 30px;
+    border-radius: 0;
+    text-transform: uppercase; 
+  }
+
+  @media (max-width: 768px){
+    .body, header, #nav-header, footer {
+      margin-right: 0;
+    }
+    .jumbotron {
+    margin-bottom: 40px;
+    }
+    h1{
+      font-size: 22px;
+    }
+    h2{
+      font-size: 20px;
+    }
+
+    .navbar-inverse {
+      background-color: #222222;
+      border-color: #090909;
+      position: absolute;
+      top: 0; 
+      overflow: hidden;
+      -webkit-transition: all .3s ease;
+      transition: all .3s ease;
+      right: 0;
+      z-index: 2000;
+    }
+    .navbar-inverse .navbar-toggle {
+      border-color: #333333;
+      background-color: #cb100a;
+      border-radius: 0;
+      padding: 20px 20px;
+    }
+    .navbar-inverse .navbar-toggle:hover, 
+    .navbar-inverse .navbar-toggle:focus {
+      border-color: #333333;
+      background-color: #cb100a;
+    }
+    .navbar-collapse {
+      padding: 0;
+    }
+    .btn-danger, .btn-primary, .btn-warning, .btn-default{
+
+      padding: 10px 20px;
+      font-size: 12px;
+      margin: 5px;
+    }
+}
+ 
