@@ -22,7 +22,7 @@
     <tr>
       <th>Title</th>
       <th>Created By</th>
-      <th>Date</th>
+      <th class="hidden-xs">Date</th>
       <th>Status</th>
     </tr>
   </thead>
@@ -32,7 +32,7 @@
       <tr>
         <td><%= link_to emergency.title, emergency  %></td>
         <td><%= emergency.created_by  %></td>
-        <td><%= formatted_date(emergency.created_at) %></td>
+        <td class="hidden-xs"><%= formatted_date(emergency.created_at) %></td>
         <td><%= emergency.status.capitalize %></td>
       </tr>
     <% end %>
