@@ -3,10 +3,9 @@
     <div class="row">
       <div class="col-xs-6 col-sm-8">
         <h1><%= @blood_drive.location %></h1> 
-        <p class="meta"><%= formatted_date(@blood_drive.date)%></p>
+       
       </div>
-      <div class="col-xs-6 col-sm-4">
-      </div>
+      
     </div>
   </div>
 </nav>
@@ -16,12 +15,15 @@
   <%= flash[:notice]%>
   </div>
 </div>
-
-<p>
-  <%= @blood_drive.description %>
-</p>
-
+<div class="col-md-12 drive-date">
+ <p class="meta"><%= formatted_date(@blood_drive.date)%></p>
+</div>
 <div class="row">
+  <div class="col-md-12 drive-p">
+    <p>
+      <%= @blood_drive.description %>
+    </p>
+  </div>
   <div class="col-md-8">
     <%= render 'shared/donors_table', donors: @donors, blood_drive: @blood_drive %>
   </div>

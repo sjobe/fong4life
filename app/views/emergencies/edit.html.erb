@@ -4,9 +4,7 @@
       <div class="col-xs-4 col-sm-6 ">
         <h1>Editing emergency</h1>
       </div>
-      <div class="col-xs-4 col-sm-6 header-btn">
-        <%= link_to("<span class='glyphicon glyphicon-chevron-left'></span> Back".html_safe, emergencies_path, class: 'btn btn-back') %>
-      </div>
+      
     </div>
   </div>
 </nav>
@@ -16,7 +14,10 @@
   <%= flash[:notice]%>
   </div>
 </div>
+<div class="col-md-12 ">
+       <%= link_to("<span class='glyphicon glyphicon-chevron-left'></span> Back".html_safe, emergencies_path, class: 'btn btn-back pull-right') %>
+</div>
 <%= render 'form' %>
-<%= link_to 'Show', @emergency, class: 'btn btn-default' %>
+<%= link_to 'Show', @emergency, class: 'btn btn-default show-btn' %>
 
 
