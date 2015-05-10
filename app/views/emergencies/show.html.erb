@@ -4,14 +4,7 @@
       <div class="col-xs-4 col-sm-6 header-btn">
         <h1 class="page--title"><%= @emergency.title %></h1>
       </div>
-      <div class="col-xs-4 col-sm-6 header-btn">
-        <%= link_to("<i class='glyphicon glyphicon-chevron-left'></i> Back".html_safe, emergencies_path, class: 'btn btn-back') %>
-        
-        <% if Emergency::STATUS_ACTIVE == @emergency.status && @emergency.pending_matches.count > 0%>
-    <%= link_to("<span class='glyphicon glyphicon-remove'></span> Close Emergency".html_safe,'#', class: 'btn btn-danger', 'data-toggle' => "modal", 'data-target'=>"#closeEmergencyModal") %>
-    <% end %>
-        
-      </div>
+      
     </div>
   </div>
 </nav>
@@ -20,6 +13,13 @@
   <div class="alert-message">
   <%= flash[:notice]%>
   </div>
+</div>
+<div class=" col-md-12">
+        <%= link_to("<i class='glyphicon glyphicon-chevron-left'></i> Back".html_safe, emergencies_path, class: 'btn btn-back ') %>
+        
+        <% if Emergency::STATUS_ACTIVE == @emergency.status && @emergency.pending_matches.count > 0%>
+    <%= link_to("<span class='glyphicon glyphicon-remove'></span> Close Emergency".html_safe,'#', class: 'btn btn-danger pull-right', 'data-toggle' => "modal", 'data-target'=>"#closeEmergencyModal") %>
+    <% end %>       
 </div>
  <div class="row">
   <div class="col-md-8 emergency-">

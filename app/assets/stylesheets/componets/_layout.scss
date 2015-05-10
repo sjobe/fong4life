@@ -36,6 +36,12 @@
     font-weight: 300;
     text-align: center;
   }
+    .brand:hover{
+      color: #FFFFFF;
+      display: block;
+      text-decoration: none;
+    }
+
   .user-options {
     background: #E7E7E7;
     color: #727272;
@@ -79,11 +85,11 @@ footer {
 
   .btn-primary, .btn-warning, .btn-default{
 
-      padding: 8px 20px;
+      padding: 10px 20px;
       font-size: 14px;
       text-transform: uppercase;
       border-radius: 0;
-      margin: 12px;
+      margin: 12px 0;
   }
   .btn-danger {
       color: white;
@@ -97,6 +103,16 @@ footer {
   .header-btn{
       top: 12px;
   }
+  .header-btn .fa-2x {
+    font-size: 1.4em;
+  }
+  .header-btn a{
+    padding: 0 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
+  }
   .btn-back {
     color: white;
     background-color: #89949B;
@@ -104,6 +120,19 @@ footer {
     padding: 10px 30px;
     border-radius: 0;
     text-transform: uppercase; 
+  }
+  .show-btn {
+    margin-left: 20px;
+  }
+
+  .drive-p{
+    margin-left: 7px;
+  }
+  .drive-date{
+    margin-left: -7px;
+  }
+  .select2-container {
+    width: 95%!important;
   }
 
   @media (max-width: 768px){
@@ -132,14 +161,16 @@ footer {
       z-index: 2000;
     }
     .navbar-inverse .navbar-toggle {
-      border-color: #333333;
+      border-color: transparent;
+      border: none;
+      box-shadow: none;
       background-color: #cb100a;
       border-radius: 0;
       padding: 20px 20px;
     }
     .navbar-inverse .navbar-toggle:hover, 
     .navbar-inverse .navbar-toggle:focus {
-      border-color: #333333;
+      border: none;
       background-color: #cb100a;
     }
     .navbar-collapse {
