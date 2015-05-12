@@ -36,7 +36,7 @@
         <td><%= link_to emergency.title, emergency  %></td>
         <td><%= emergency.created_by  %></td>
         <td class="hidden-xs"><%= formatted_date(emergency.created_at) %></td>
-        <td><%= emergency.status.capitalize %></td>
+        <td><%= emergency.status.try(:capitalize) %></td>
       </tr>
     <% end %>
   </tbody>
