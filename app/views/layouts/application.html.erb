@@ -13,18 +13,6 @@
 
 <body>
 <section class="main-wrapper"> 
- <!--
-  <form class="navbar-form navbar-right" style='display: none'>
-                <div class="form-group">
-                  <input type="text" placeholder="Email" class="form-control">
-                </div>
-                <div class="form-group">
-                  <input type="password" placeholder="Password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success">Sign in</button>
-              </form>
-  -->
-  
   
   <!-- main container to views -->
   <div class="body">
@@ -32,16 +20,10 @@
       <%= yield %> 
     </div> <!-- /container -->
   </div>
-  <!-- footer -->
-  <footer>
-    <div class="container-fluid rubix-grid text-center">
-      <p>&copy; Fong4Life 2014</p>
-    </div>
-  </footer>
-  
-  <!-- Mobile Nav -->
 
-  <nav class="navbar navbar-inverse hidden-sm hidden-md hidden-lg" role="navigation">
+  <!-- Sidebar -->
+
+  <nav class="navbar navbar-inverse" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -51,81 +33,56 @@
                 <span class="icon-bar"></span>
             </button>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <div id="user-widget" class="user-options row-fluid">
-              <% if current_user %>
-               
-               <div class="col-md-12">
-                 <span class="user-profile"><%= current_user.name %></span>
-                 <br />
-                 <i class="fa fa-cog"></i> 
-                 <%= link_to "Sign out", signout_path, id: "sign_out" %>
-               </div>
-              <% else %>
-               <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-             <br />
-               <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in_google" %>
-              <% end %>
-            </div>
-           <% if current_user.present? %>
-              <ul class="nav">
-                <% if can? :read, BloodDrive %>
-                  <li><a href="/blood_drives">Blood Drives</a></li>
-                <% end %>
-                <% if can? :read, Emergency %>
-                  <li><a href="/emergencies">Emergencies</a></li>
-                <% end %>
-                <% if can? :read, Donor %>
-                  <li><a href="/donors">Donors </a></li>
-                <% end %>
-              </ul>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <div id="sidebar" class="sidebar">
+        <!--logo start-->
+         <a class="brand" href="/">
+           FONG4LIFE
+        </a>                   
+        <div class="sidebar-container">
+         <div id="user-widget" class=" user-options row">
+            <% if current_user %>
+             
+             <div class="col-md-12">
+               <span class="user-profile"><%= current_user.name %></span>
+               <br />
+               <i class="fa fa-cog"></i> 
+               <%= link_to "Sign out", signout_path, id: "sign_out" %>
+             </div>
+            <% else %>
+             <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+           <br />
+             <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in_google" %>
+
             <% end %>
           </div>
+         <% if current_user.present? %>
+            <ul class="nav">
+              <% if can? :read, BloodDrive %>
+                <li><a href="/blood_drives"> <%= image_tag("blood.png", :class => "img-cl") %> Blood Drives</a></li>
+              <% end %>
+              <% if can? :read, Emergency %>
+                <li><a href="/emergencies"> <%= image_tag("emergency.png", :class => "img-cl") %> Emergencies</a></li>
+              <% end %>
+              <% if can? :read, Donor %>
+                <li><a href="/donors"><%= image_tag("donors.png", :class => "img-cl") %> Donors </a></li>
+              <% end %>
+            </ul>
+          <% end %>
         </div>
-    </div>
-</nav>
-  <!-- End Mobile Nav -->
-  
-  <!-- sidebar -->
-  <aside id="sidebar" class="sidebar hidden-xs">
-    <!--logo start-->
-     <a class="brand" href="/">
-       FONG4LIFE
-    </a>                   
-    <div class="sidebar-container">
-     
-     <div id="user-widget" class="user-options row">
-        <% if current_user %>
-         
-         <div class="col-md-12">
-           <span class="user-profile"><%= current_user.name %></span>
-           <br />
-           <i class="fa fa-cog"></i> 
-           <%= link_to "Sign out", signout_path, id: "sign_out" %>
-         </div>
-        <% else %>
-         <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-       <br />
-         <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in_google" %>
-
-        <% end %>
       </div>
-     <% if current_user.present? %>
-        <ul class="nav">
-          <% if can? :read, BloodDrive %>
-            <li><a href="/blood_drives">Blood Drives</a></li>
-          <% end %>
-          <% if can? :read, Emergency %>
-            <li><a href="/emergencies">Emergencies</a></li>
-          <% end %>
-          <% if can? :read, Donor %>
-            <li><a href="/donors">Donors </a></li>
-          <% end %>
-        </ul>
-      <% end %>
-      
     </div>
-  </aside>
+  </nav>
+
+  <!-- footer -->
+  <footer>
+    <div class="container-fluid rubix-grid text-center">
+      <p>&copy; Fong4Life 2014</p>
+    </div>
+  </footer>
+  
+  
+  
 </section>
 <%= javascript_include_tag "application" %>
 <!-- Bootstrap core JavaScript

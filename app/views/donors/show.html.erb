@@ -16,47 +16,47 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6">
-      Date of Birth: <%= formatted_date(@donor.date_of_birth, false) %>      
+    <div class="col-md-6 donor-info">
+      <strong>Date of Birth: </strong><%= formatted_date(@donor.date_of_birth, false) %>      
     </div>
-    <div class="col-md-6">
-      Sex: <%= @donor.sex%> 
-    </div>
-  </div>
-
-<div class="row">
-    <div class="col-md-6">
-      Address: <%= @donor.address %>      
-    </div>
-    <div class="col-md-6">
-      Phone Number: <%= @donor.primary_phone_number %> 
+    <div class="col-md-6 donor-info">
+      <strong>Sex: </strong><%= @donor.sex%> 
     </div>
   </div>
 
 <div class="row">
-    <div class="col-md-6">
-      Secondary Phone Number: <%= @donor.secondary_phone_number %>     
+    <div class="col-md-6 donor-info">
+      <strong>Address: </strong><%= @donor.address %>      
     </div>
-    <div class="col-md-6">
-      Blood Group: <%= @donor.blood_group %> 
+    <div class="col-md-6 donor-info">
+      <strong>Phone Number: </strong><%= @donor.primary_phone_number %> 
     </div>
   </div>
 
 <div class="row">
-    <div class="col-md-6">
-      Email Address: <%= @donor.email_address %>     
+    <div class="col-md-6 donor-info">
+      <strong>Secondary Phone Number: </strong><%= @donor.secondary_phone_number %>     
     </div>
-    <div class="col-md-6">
-      Donor Card ID: <%= @donor.donor_card_id %> 
+    <div class="col-md-6 donor-info">
+      <strong>Blood Group: </strong><%= @donor.blood_group %> 
+    </div>
+  </div>
+
+<div class="row">
+    <div class="col-md-6 donor-info">
+      <strong>Email Address: </strong><%= @donor.email_address %>     
+    </div>
+    <div class="col-md-6 donor-info">
+      <strong>Donor Card ID: </strong><%= @donor.donor_card_id %> 
     </div>
 </div>
 
 <div class="row">
-    <div class="col-md-6">
-      Last Emergency Contact Date: <%= formatted_date(@donor.last_emergency_contact_date) if @donor.last_emergency_contact_date %>     
+    <div class="col-md-6 donor-info">
+      <strong>Last Emergency Contact Date: </strong><%= formatted_date(@donor.last_emergency_contact_date) if @donor.last_emergency_contact_date %>     
     </div>
-    <div class="col-md-6">
-      Last Reminder Date: <%= formatted_date(@donor.last_reminder_message_date) if @donor.last_reminder_message_date %> 
+    <div class="col-md-6 donor-info">
+      <strong>Last Reminder Date: </strong><%= formatted_date(@donor.last_reminder_message_date) if @donor.last_reminder_message_date %> 
     </div>
 </div>
 
