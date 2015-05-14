@@ -9,7 +9,7 @@ class Ability
 
     if user.data_entry?
       can [:read, :create, :update], [Donor, Donation]
-      can :read, BloodDrive
+      can [:read, :add_donor, :delete_donor], BloodDrive
     end
 
     if user.event_manager?
