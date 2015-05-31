@@ -81,6 +81,12 @@ footer {
 .emergency- dd {
   margin: 10px auto;
 }
+.bl_drives{
+  clear: both;
+}
+.emer-btns {
+  margin-right: 5px;
+}
 /* BTN STYLES */
 
   .btn-primary, .btn-warning, .btn-default{
@@ -149,6 +155,7 @@ footer {
   @media (max-width: 768px){
     .body, header, #nav-header, footer {
       margin-right: 0;
+
     }
     .jumbotron {
     margin-bottom: 40px;
@@ -169,7 +176,7 @@ footer {
     .navbar-inverse {
       background-color: transparent;
       border-color: transparent;
-      position: absolute;
+      position: fixed;
       top: 0; 
       overflow: hidden;
       -webkit-transition: all .3s ease;

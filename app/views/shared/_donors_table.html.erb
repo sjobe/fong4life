@@ -25,7 +25,7 @@
         <% end %>
         <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
         <% if defined? blood_drive %>
-        <td><%= link_to 'Remove', delete_donor_blood_drive_path(donor_id: donor.id, id: blood_drive.id) %></td>
+        <td><%= link_to 'Remove', delete_donor_blood_drive_path(donor_id: donor.id, id: blood_drive.id), :data => {:confirm => 'Are you sure you want to remove donor from blooddrive?'} %></td>
         <% else %>
           <td><%= link_to 'Remove', donor, method: :get %></td>
 
