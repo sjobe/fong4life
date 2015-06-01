@@ -18,73 +18,75 @@
        <i class='glyphicon glyphicon-new-window'></i> <%= link_to 'Create Blood Drive', new_blood_drive_path %>
     <% end %>
 </div>
-<h2>Today</h2>
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Location</th>
-      <th>Date</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @current_drives.each do |blood_drive| %>
+<div class="bl_drives">
+  <h2>Today</h2>
+  <table class="table table-striped table-hover">
+    <thead>
       <tr>
-        <td><%= blood_drive.location %></td>
-        <td><%= formatted_date(blood_drive.date) %></td>
-        <td><%= link_to 'Show', blood_drive %></td>
-        <td><%= link_to 'Edit', edit_blood_drive_path(blood_drive) %></td>
+        <th>Location</th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
+    </thead>
 
-<h2>Upcoming</h2>
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Location</th>
-      <th>Date</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    <tbody>
+      <% @current_drives.each do |blood_drive| %>
+        <tr>
+          <td><%= blood_drive.location %></td>
+          <td><%= formatted_date(blood_drive.date) %></td>
+          <td><%= link_to 'Show', blood_drive %></td>
+          <td><%= link_to 'Edit', edit_blood_drive_path(blood_drive) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
 
-  <tbody>
-    <% @upcoming_drives.each do |blood_drive| %>
+  <h2>Upcoming</h2>
+  <table class="table table-striped table-hover">
+    <thead>
       <tr>
-        <td><%= blood_drive.location %></td>
-        <td><%= formatted_date(blood_drive.date) %></td>
-        <td><%= link_to 'Show', blood_drive %></td>
-        <td><%= link_to 'Edit', edit_blood_drive_path(blood_drive) %></td>
+        <th>Location</th>
+        <th>Date</th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
+    </thead>
 
-<h2>Past</h2>
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Location</th>
-      <th>Date</th>
-      <th></th>
-    </tr>
-  </thead>
+    <tbody>
+      <% @upcoming_drives.each do |blood_drive| %>
+        <tr>
+          <td><%= blood_drive.location %></td>
+          <td><%= formatted_date(blood_drive.date) %></td>
+          <td><%= link_to 'Show', blood_drive %></td>
+          <td><%= link_to 'Edit', edit_blood_drive_path(blood_drive) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
 
-  <tbody>
-    <% @past_drives.each do |blood_drive| %>
+  <h2>Past</h2>
+  <table class="table table-striped table-hover">
+    <thead>
       <tr>
-        <td><%= blood_drive.location %></td>
-        <td><%= formatted_date(blood_drive.date) %></td>
-        <td><%= link_to 'Show', blood_drive %></td>
+        <th>Location</th>
+        <th>Date</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @past_drives.each do |blood_drive| %>
+        <tr>
+          <td><%= blood_drive.location %></td>
+          <td><%= formatted_date(blood_drive.date) %></td>
+          <td><%= link_to 'Show', blood_drive %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
 
