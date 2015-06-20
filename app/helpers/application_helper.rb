@@ -6,4 +6,10 @@ module ApplicationHelper
        date.strftime("%A, %d %b %Y") 
     end
   end
+
+  def active_section(top_page)
+    if controller_name == top_page
+      'nav-item-active'
+    end
+  end
 end

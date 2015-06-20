@@ -22,64 +22,12 @@
   </div>
 
   <!-- Sidebar -->
-
-  <nav class="navbar navbar-inverse" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only"> </span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-        </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-     <div id="sidebar" class="sidebar">
-        <!--logo start-->
-         <a class="brand" href="/">
-           FONG4LIFE
-        </a>                   
-        <div class="sidebar-container">
-          <% if current_user.present? %>
-            <div id="user-widget" class=" user-options row">
-               <div class="col-md-12">
-                 <span class="user-profile"><%= current_user.name %></span>
-                 <br />
-                 <i class="fa fa-cog"></i>
-                 <%= link_to "Sign out", signout_path, id: "sign_out" %>
-               </div>
-            </div>
-            <ul class="nav">
-              <% if can? :read, BloodDrive %>
-                <li><a href="/blood_drives"> <%= image_tag("blood.png", :class => "img-cl") %> Blood Drives</a></li>
-              <% end %>
-              <% if can? :read, Emergency %>
-                <li><a href="/emergencies"> <%= image_tag("emergency.png", :class => "img-cl") %> Emergencies</a></li>
-              <% end %>
-              <% if can? :read, Donor %>
-                <li><a href="/donors"><%= image_tag("donors.png", :class => "img-cl") %> Donors </a></li>
-              <% end %>
-            </ul>
-            <% else %>
-            <ul class="nav">
-              <li>
-                <%= link_to '<i class="fa fa-facebook-official"></i> Sign in with Facebook'.html_safe, "/auth/facebook", id: "sign_in" %>
-              </li>
-              <li>
-                <%= link_to '<i class="fa fa-google"></i> Sign in with Google'.html_safe, "/auth/google_oauth2", id: "sign_in_google" %>
-              </li>
-            </ul>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    </div>
-  </nav>
+  <%= render 'shared/side_nav' %>
 
   <!-- footer -->
   <footer class="sticky-footer">
     <div class="container-fluid rubix-grid text-center">
-      <p>&copy; Fong4Life 2014</p>
+      <p>&copy; Fong4Life 2015</p>
     </div>
   </footer>
   

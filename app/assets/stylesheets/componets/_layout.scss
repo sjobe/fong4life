@@ -19,10 +19,23 @@
     overflow: hidden;
   }
 
-  .sidebar-container .nav a{
+  .sidebar-container .nav a {
     display: block;
     padding: 25px;
     border-bottom: 1px solid #E7E7E7;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #727272;
+
+    &:hover{
+      color: $primary;
+    }
+
+    &.nav-item-active {
+      color: $primary;
+      border-left: 10px solid $primary;
+      padding-left: 15px;
+    }
   }
 
   .brand {
@@ -73,6 +86,7 @@ footer {
 .user-options .user-profile {
   font-size: 18px;
   font-weight: 700;
+  display: block;
 }
 
 .emergency- h2, .emergency-meta h2{
