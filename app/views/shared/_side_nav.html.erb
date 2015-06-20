@@ -11,9 +11,7 @@
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <div id="sidebar" class="sidebar">
         <!--logo start-->
-        <a class="brand" href="/">
-          FONG4LIFE
-        </a>
+        <a class="brand" href="/"><%= ENV['ORG_NAME'] %></a>
         <div class="sidebar-container">
           <% if current_user.present? %>
             <div id="user-widget" class=" user-options row">
