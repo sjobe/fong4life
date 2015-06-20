@@ -40,23 +40,15 @@
            FONG4LIFE
         </a>                   
         <div class="sidebar-container">
-         <div id="user-widget" class=" user-options row">
-            <% if current_user %>
-             
-             <div class="col-md-12">
-               <span class="user-profile"><%= current_user.name %></span>
-               <br />
-               <i class="fa fa-cog"></i> 
-               <%= link_to "Sign out", signout_path, id: "sign_out" %>
-             </div>
-            <% else %>
-             <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-           <br />
-             <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in_google" %>
-
-            <% end %>
-          </div>
-         <% if current_user.present? %>
+          <% if current_user.present? %>
+            <div id="user-widget" class=" user-options row">
+               <div class="col-md-12">
+                 <span class="user-profile"><%= current_user.name %></span>
+                 <br />
+                 <i class="fa fa-cog"></i>
+                 <%= link_to "Sign out", signout_path, id: "sign_out" %>
+               </div>
+            </div>
             <ul class="nav">
               <% if can? :read, BloodDrive %>
                 <li><a href="/blood_drives"> <%= image_tag("blood.png", :class => "img-cl") %> Blood Drives</a></li>
@@ -68,9 +60,19 @@
                 <li><a href="/donors"><%= image_tag("donors.png", :class => "img-cl") %> Donors </a></li>
               <% end %>
             </ul>
+            <% else %>
+            <ul class="nav">
+              <li>
+                <%= link_to '<i class="fa fa-facebook-official"></i> Sign in with Facebook'.html_safe, "/auth/facebook", id: "sign_in" %>
+              </li>
+              <li>
+                <%= link_to '<i class="fa fa-google"></i> Sign in with Google'.html_safe, "/auth/google_oauth2", id: "sign_in_google" %>
+              </li>
+            </ul>
           <% end %>
         </div>
       </div>
+    </div>
     </div>
   </nav>
 
@@ -80,8 +82,6 @@
       <p>&copy; Fong4Life 2014</p>
     </div>
   </footer>
-  
-  
   
 </section>
 <%= javascript_include_tag "application" %>

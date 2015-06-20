@@ -1,8 +1,5 @@
-<h1>Fong4Life</h1>
-<% if current_user.present? %>
-  
-<% elsif flash[:error] %>
+<h2>Please sign in to proceed.</h2>
+
+<% if flash[:error] %>
   <p class='error'><%=h flash[:error] %></p>
-<% else %>
-<p>Please sign in.</p>
 <% end %>
