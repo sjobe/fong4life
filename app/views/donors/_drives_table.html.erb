@@ -1,0 +1,27 @@
+<table class="table table-striped table-hover">
+  <thead>
+  <tr>
+    <th>Location</th>
+    <th>Date</th>
+    <th></th>
+    <% if defined?(show_edit) %><th></th><% end %>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% if drives.blank? %>
+    <tr>
+      <td colspan="4" class="text-center">No blood drives found.</td>
+    </tr>
+  <% else %>
+    <% drives.each do |blood_drive| %>
+      <tr>
+        <td><%= blood_drive.location %></td>
+        <td><%= formatted_date(blood_drive.date) %></td>
+        <td><%= link_to 'Show', blood_drive %></td>
+        <% if defined?(show_edit) %><td><%= link_to 'Edit', edit_blood_drive_path(blood_drive) %></td><% end %>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
