@@ -7,6 +7,7 @@
       <% if !defined? blood_drive %>
         <th class="hidden-xs">Last Emergency Contact Date</th>
         <th class="hidden-xs">Last Reminder Date</th>
+        <th></th>
       <% end %>
       <th></th>
     </tr>
@@ -14,7 +15,6 @@
 
   <tbody>
     <% donors.compact.each do |donor| %>
-   
       <tr>
         <td><%= link_to "#{donor.first_name} #{donor.last_name}", donor %></td>
         <td><%= donor.address %></td>
@@ -22,14 +22,15 @@
         <% if !defined? blood_drive %>        
         <td class="hidden-xs"><%= formatted_date(donor.last_emergency_contact_date, false) if donor.last_emergency_contact_date  %></td>
         <td class="hidden-xs"><%= formatted_date(donor.last_reminder_message_date, false) if donor.last_reminder_message_date %></td>
-        <% end %>
         <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
+      <% end %>
         <% if defined? blood_drive %>
-        <td><%= link_to 'Remove', delete_donor_blood_drive_path(donor_id: donor.id, id: blood_drive.id), :data => {:confirm => 'Are you sure you want to remove donor from blooddrive?'} %></td>
+          <td>
+            <%= link_to 'Remove From Drive', delete_donor_blood_drive_path(donor_id: donor.id, id: blood_drive.id),
+                        :data => {:confirm => "Are you sure you want to remove #{donor.full_name} from this blood drive?"} %>
+          </td>
         <% else %>
-          <td><%= link_to 'Remove', donor, method: :get %></td>
-
-        
+          <td><%= link_to 'Delete', donor, method: :delete, data: {confirm: "Are you sure you want to delete #{donor.full_name}?"} %></td>
         <% end %>
       </tr>
     <% end %>
