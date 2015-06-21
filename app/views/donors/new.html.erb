@@ -1,18 +1,5 @@
-<nav class="navbar navbar-default navbar-fixed-top" id="nav-header">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-6 col-sm-8">
-        <h1>Add Donor</h1>
-      </div>
-      <div class="col-xs-6 col-sm-4">
-      </div>
-    </div>
-  </div>
-</nav>
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <div class="alert-message">
-  <%= flash[:notice]%>
-  </div>
-</div>
+<% content_for :header do %>
+  <h1>Add Donor</h1>
+<% end %>
+
 <%= render 'form' %>

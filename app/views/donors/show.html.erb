@@ -1,20 +1,7 @@
-  <nav class="navbar navbar-default navbar-fixed-top" id="nav-header">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-6 col-sm-6">
-          <h1><%= @donor.first_name  %> <%= @donor.last_name  %></h1>
-        </div>
-        <div class="col-xs-6 col-sm-6">
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron">
-    <div class="alert-message">
-    <%= flash[:notice]%>
-    </div>
-  </div>
+ <% content_for :header do %>
+    <h1><%= @donor.first_name  %> <%= @donor.last_name  %></h1>
+  <% end %>
+
   <div class="row">
     <div class="col-md-6 donor-info">
       <strong>Date of Birth: </strong><%= formatted_date(@donor.date_of_birth, false) %>      

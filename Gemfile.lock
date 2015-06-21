@@ -78,6 +78,8 @@ GEM
       bundler (~> 1.0)
       rails (>= 3, < 5)
     fssm (0.2.10)
+    gretel (3.0.8)
+      rails (>= 3.2.0)
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
@@ -210,6 +212,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   figaro
+  gretel
   jbuilder (~> 1.2)
   jquery-rails
   mongoid!

@@ -1,24 +1,12 @@
-<nav class="navbar navbar-default navbar-fixed-top" id="nav-header">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-8 col-sm-8">
-        <h1>Donors</h1>
-      </div>
-    </div>
-  </div>
-</nav>
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <div class="alert-message">
-  <%= flash[:notice]%>
-  </div>
-</div>
+<% content_for :header do %>
+  <h1>Donors</h1>
+  <% breadcrumb :donors %>
+<% end %>
 
-<div class=" header-btn pull-right">
+<div class="header-btn pull-right">
     <div class="btn btn-primary">
      <i class='glyphicon glyphicon-plus-sign'></i> <%= link_to 'New Donor', new_donor_path %>
     </div>
-        
 </div>
 <%= render 'shared/donors_table', donors: @donors %>
 <br>

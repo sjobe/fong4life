@@ -1,25 +1,13 @@
-<nav class="navbar navbar-default navbar-fixed-top" id="nav-header">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-8 col-sm-6 header-btn">
-        <h1 class="page--title"><%= @emergency.title %></h1>
-      </div>
-      
-    </div>
-  </div>
-</nav>
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <div class="alert-message">
-  <%= flash[:notice]%>
-  </div>
-</div>
-<div class=" col-md-12">
-        <%= link_to("<i class='glyphicon glyphicon-chevron-left'></i> Back".html_safe, emergencies_path, class: 'btn btn-back ') %>
+<% content_for :header do %>
+  <h1><%= @emergency.title %></h1>
+<% end %>
+
+<div class="col-md-12">
+  <%= link_to("<i class='glyphicon glyphicon-chevron-left'></i> Back".html_safe, emergencies_path, class: 'btn btn-back ') %>
         
-        <% if Emergency::STATUS_ACTIVE == @emergency.status && @emergency.pending_matches.count > 0%>
+  <% if Emergency::STATUS_ACTIVE == @emergency.status && @emergency.pending_matches.count > 0%>
     <%= link_to("<span class='glyphicon glyphicon-remove'></span> Close Emergency".html_safe,'#', class: 'btn btn-danger pull-right', 'data-toggle' => "modal", 'data-target'=>"#closeEmergencyModal") %>
-    <% end %>       
+  <% end %>
 </div>
  <div class="row">
   <div class="col-md-8 emergency-">

@@ -17,7 +17,22 @@
   <!-- main container to views -->
   <div class="body">
     <div class="container-fluid rubix-grid">
-      <%= yield %> 
+      <nav class="navbar navbar-default navbar-fixed-top" id="nav-header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xs-8">
+              <%= yield :header %>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <% if flash[:notice] %>
+        <div class="alert-message alert alert-success">
+          <%= flash[:notice]%>
+        </div>
+      <% end %>
+      <%= breadcrumbs separator: " &rsaquo; " %>
+      <%= yield %>
     </div> <!-- /container -->
   </div>
 

@@ -1,19 +1,7 @@
-<nav class="navbar navbar-default navbar-fixed-top" id="nav-header">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-xs-4 col-sm-6 ">
-        <h1>Editing emergency</h1>
-      </div>
-      
-    </div>
-  </div>
-</nav>
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <div class="alert-message">
-  <%= flash[:notice]%>
-  </div>
-</div>
+<% content_for :header do %>
+  <h1>Edit Emergency</h1>
+<% end %>
+
 <div class="col-md-12 ">
        <%= link_to("<span class='glyphicon glyphicon-chevron-left'></span> Back".html_safe, emergencies_path, class: 'btn btn-back pull-right') %>
 </div>
