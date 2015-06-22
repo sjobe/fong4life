@@ -25,12 +25,13 @@
               <% if can? :read, BloodDrive %>
                 <li><a href="/blood_drives" class="<%= active_section('blood_drives') %>"> <%= image_tag("blood.png", :class => "img-cl") %> Blood Drives</a></li>
               <% end %>
-              <% if can? :read, Emergency %>
-                <li><a href="/emergencies" class="<%= active_section('emergencies') %>"> <%= image_tag("emergency.png", :class => "img-cl") %> Emergencies</a></li>
-              <% end %>
               <% if can? :read, Donor %>
                 <li><a href="/donors" class="<%= active_section('donors') %>"><%= image_tag("donors.png", :class => "img-cl") %> Donors </a></li>
               <% end %>
+              <% if can? :read, Emergency %>
+                <li><a href="/emergencies" class="<%= active_section('emergencies') %>"> <%= image_tag("emergency.png", :class => "img-cl") %> Emergencies</a></li>
+              <% end %>
+              <li><a href="/facebook_posts" class="<%= active_section('facebook_posts') %>"><%= image_tag("facebook.png", :class => "img-cl") %> Facebook Page </a></li>
             </ul>
           <% else %>
             <ul class="nav">
