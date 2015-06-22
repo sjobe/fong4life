@@ -1,0 +1,21 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1139" measuredH="656" mockupW="785" mockupH="641">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="354" y="15" w="785" h="641" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Fong4Life%0Ahttp%3A//app.fong4life.com</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Image" x="354" y="89" w="782" h="538" measuredW="2080" measuredH="1432" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <filter>true</filter>
+        <src>./assets/new_blood_drive.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::CheckBox" x="363" y="335" w="-1" h="-1" measuredW="226" measuredH="22" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Create%20Unpublished%20Facebook%20Post</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
