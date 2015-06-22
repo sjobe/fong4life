@@ -14,6 +14,10 @@ crumb :emergencies do
   link 'Emergencies', blood_drives_path
 end
 
+crumb :facebook_posts do
+  link 'Facebook Page', facebook_posts_path
+end
+
 
 # crumb :project do |project|
 #   link project.name, project_path(project)
