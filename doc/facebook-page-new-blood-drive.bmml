@@ -12,9 +12,9 @@
         <text/>
       </controlProperties>
     </control>
-    <control controlID="5" controlTypeID="com.balsamiq.mockups::CheckBox" x="363" y="335" w="-1" h="-1" measuredW="226" measuredH="22" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::CheckBox" x="363" y="335" w="-1" h="-1" measuredW="185" measuredH="22" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Create%20Unpublished%20Facebook%20Post</text>
+        <text>Create%20Facebook%20Post%20Draft</text>
       </controlProperties>
     </control>
   </controls>

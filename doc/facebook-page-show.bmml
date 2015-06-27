@@ -7,6 +7,7 @@
     </control>
     <control controlID="1" controlTypeID="com.balsamiq.mockups::Image" x="240" y="83" w="759" h="529" measuredW="2084" measuredH="1452" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
+        <filter>true</filter>
         <src>./assets/facebook-posts-index.png</src>
         <text/>
       </controlProperties>

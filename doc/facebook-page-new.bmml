@@ -2,6 +2,7 @@
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::Image" x="240" y="83" w="759" h="529" measuredW="2084" measuredH="1452" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
+        <filter>true</filter>
         <src>./assets/facebook-posts-index.png</src>
         <text/>
       </controlProperties>
@@ -16,14 +17,14 @@
         <text>Post%20body</text>
       </controlProperties>
     </control>
-    <control controlID="3" controlTypeID="com.balsamiq.mockups::Button" x="457" y="346" w="-1" h="-1" measuredW="52" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Button" x="418" y="346" w="-1" h="-1" measuredW="52" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Save</text>
       </controlProperties>
     </control>
-    <control controlID="4" controlTypeID="com.balsamiq.mockups::Button" x="543" y="346" w="-1" h="-1" measuredW="64" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Button" x="543" y="346" w="-1" h="-1" measuredW="124" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Publish</text>
+        <text>Post%20to%20Facebook</text>
       </controlProperties>
     </control>
     <control controlID="6" controlTypeID="com.balsamiq.mockups::TextArea" x="598" y="187" w="206" h="131" measuredW="200" measuredH="140" zOrder="5" locked="false" isInGroup="-1">

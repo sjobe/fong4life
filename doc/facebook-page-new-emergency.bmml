@@ -12,9 +12,10 @@
         <text>Fong4Life%0Ahttp%3A//app.fong4life.com</text>
       </controlProperties>
     </control>
-    <control controlID="3" controlTypeID="com.balsamiq.mockups::CheckBox" x="291" y="415" w="-1" h="-1" measuredW="226" measuredH="22" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::CheckBox" x="291" y="415" w="-1" h="-1" measuredW="189" measuredH="22" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Create%20Unpublished%20Facebook%20Post</text>
+        <state>selected</state>
+        <text>Create%20%20Facebook%20Post%20Draft</text>
       </controlProperties>
     </control>
   </controls>
