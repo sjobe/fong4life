@@ -12,6 +12,7 @@ class FacebookPost
   field :image_attachments
 
   def self.graph
+    Koala.config.api_version = "v2.3"
     @graph ||= Koala::Facebook::API.new(ENV['FACEBOOK_PAGE_LONG_LIVED_TOKEN'])
   end
 
@@ -56,6 +57,13 @@ class FacebookPost
     # to publish Page posts, using the scheduled_publish_time field and the published field with a value of false.
     #graph.put_connections(ENV['FACEBOOK_PAGE_SLUG'], 'feed', {message: content, published: true})
     graph.put_connections(ENV['FACEBOOK_PAGE_SLUG'], 'feed', options)
+  end
+
+  def self.get_post_data(id)
+    opts = {
+        fields: 'attachments,message,type,scheduled_publish_time,is_published,link,insights,picture'
+    }
+    graph.get_object(id, opts)
   end
 
   def self.page_info

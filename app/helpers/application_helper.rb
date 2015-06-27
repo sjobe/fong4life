@@ -18,4 +18,14 @@ module ApplicationHelper
       'nav-item-active'
     end
   end
+
+  def insight_value(val)
+    if val.class == Hash
+      val.map{|k,v| "(#{k.capitalize}) #{v}"}.join(', ')
+    elsif val.class == Array
+      val.present? ? val.join(',') : 'N/A'
+    else
+      val
+    end
+  end
 end

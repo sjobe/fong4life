@@ -1,5 +1,25 @@
+@import "../libs/settings";
+@import "../libs/mixins";
+
 body.facebook_posts.new, body.facebook_posts.edit, body.facebook_posts.update {
   form {
     border: none;
+  }
+}
+
+body.facebook_posts.show {
+  .post-image-link{
+    outline: none;
+  }
+  .post-image {
+    width: 150px;
+    margin: 10px;
+  }
+
+  .insight-tooltip {
+    color: $tertiary;
+    &:hover{
+      text-decoration: none;
+    }
   }
 }

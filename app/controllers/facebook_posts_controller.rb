@@ -7,7 +7,19 @@ class FacebookPostsController < ApplicationController
   end
 
   def new
+    @facebook_post = FacebookPost.new
+  end
 
+  def show
+    @facebook_post = FacebookPost.get_post_data(params[:id])
+    if @facebook_post['type'] == 'photo'
+      if @facebook_post['attachments']['data'].first['subattachments']
+          @photo_attachments = @facebook_post['attachments']['data'].first['subattachments']['data']
+      else
+        @photo_attachments = @facebook_post['attachments']['data']
+      end
+
+    end
   end
 
   def create

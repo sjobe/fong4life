@@ -23,6 +23,10 @@ crumb :new_facebook_post do
   parent :facebook_posts
 end
 
+crumb :show_facebook_post do |id|
+  link 'Show Facebook Post', facebook_post_path(id: id)
+  parent :facebook_posts
+end
 
 # crumb :project do |project|
 #   link project.name, project_path(project)

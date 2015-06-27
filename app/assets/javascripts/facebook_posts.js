@@ -17,7 +17,37 @@ $(function(){
           function(){
             window.location = href;
       });
-    })
+    });
+  }
+
+  if($('body.facebook_posts.show').length){
+
+    // Colorbox for images
+    $(".post-image-link").colorbox({rel:'post-image-link'});
+
+    // Modal for delete posts
+    $('.delete-post').on('click', function(e){
+      e.preventDefault();
+      e.stopPropagation()
+      var href = $(this).attr('href');
+      swal({
+            title: "Are you sure?",
+            text: "You are about to delete this post",
+            type: "warning",   showCancelButton: true,
+            confirmButtonColor: "#CB100A",
+            confirmButtonText: "Yes, delete it!",
+            closeOnConfirm: false
+          },
+          function(){
+            window.location = href;
+          });
+    });
+
+    // Tooltip for insights
+    $('[data-toggle="tooltip"]').tooltip().on('click', function(e){
+      e.preventDefault();
+      e.stopPropagation()
+    });
   }
 
   if($('body.facebook_posts.new, body.facebook_posts.edit, body.facebook_posts.update').length){
