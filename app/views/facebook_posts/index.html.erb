@@ -55,10 +55,12 @@
       <td><%= facebook_date(facebook_post['created_time']) %></td>
       <td><%= facebook_post['is_published'] ? 'Yes' : 'No' %></td>
       <td><%= facebook_post['scheduled_publish_time'] ? 'Yes' : 'No' %></td>
-      <td><%= excerpt( facebook_post['message'], '', radius: 25)%> </td>
+      <td class="excerpt"><%= excerpt( facebook_post['message'], '', radius: 25)%> </td>
       <td>Show</td>
       <td>Edit</td>
-      <td>Delete</td>
+      <td>
+        <%= link_to 'Delete', "/facebook_posts/delete/#{facebook_post['id']}", class: 'delete-post' %></td>
+      </td>
     </tr>
   <% end %>
   </tbody>

@@ -27,6 +27,10 @@ class FacebookPost
     res
   end
 
+  def self.delete_post(id)
+    graph.delete_object(id)
+  end
+
   def options
     options = {
         message: self.message,

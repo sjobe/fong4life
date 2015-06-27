@@ -1,4 +1,6 @@
 class FacebookPostsController < ApplicationController
+  skip_load_and_authorize_resource
+
   def index
     @facebook_posts = FacebookPost.get_all_posts(params)
     @page_info = FacebookPost.page_info
@@ -29,6 +31,11 @@ class FacebookPostsController < ApplicationController
     else
       render action: 'new', alert: 'there was an issue with your post'
     end
+  end
+
+  def delete
+    FacebookPost.delete_post(params[:id])
+    redirect_to facebook_posts_path, notice: 'Post was successfully deleted.'
   end
 
   def facebook_post_params

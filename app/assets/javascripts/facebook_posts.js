@@ -1,5 +1,25 @@
 $(function(){
 
+  if($('body.facebook_posts.index').length){
+    $('.delete-post').on('click', function(e){
+      e.preventDefault();
+      e.stopPropagation()
+      var excerpt = $(this).parents('tr').children('.excerpt').text();
+      var href = $(this).attr('href');
+      swal({
+        title: "Are you sure?",
+        text: "You are about to delete the post with excerpt \""+ excerpt +"\"",
+        type: "warning",   showCancelButton: true,
+        confirmButtonColor: "#CB100A",
+        confirmButtonText: "Yes, delete it!",
+        closeOnConfirm: false
+        },
+          function(){
+            window.location = href;
+      });
+    })
+  }
+
   if($('body.facebook_posts.new, body.facebook_posts.edit, body.facebook_posts.update').length){
     Dropzone.options.newFacebookPost = { // The camelized version of the ID of the form element
 
