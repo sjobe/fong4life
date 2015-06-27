@@ -11,9 +11,9 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body>
-<section class="main-wrapper"> 
-  
+<body class="<%= controller_path.gsub('/', '-') %> <%= action_name %>">
+<section class="main-wrapper">
+
   <!-- main container to views -->
   <div class="body">
     <div class="container-fluid rubix-grid">
@@ -45,7 +45,7 @@
       <p>&copy; <%= ENV['ORG_NAME'] %>  2015</p>
     </div>
   </footer>
-  
+
 </section>
 <%= javascript_include_tag "application" %>
 <!-- Bootstrap core JavaScript
