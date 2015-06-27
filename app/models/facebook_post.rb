@@ -1,11 +1,15 @@
 class FacebookPost
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   POSTS_PER_PAGE = 10
 
+  field :facebook_id, type: String
   field :status, type: String
   field :message, type: String
-  field :unpublished, type: Boolean
+  field :published, type: Boolean
+  field :scheduled_publish_time, type: DateTime
+  field :image_attachments
 
   def self.graph
     @graph ||= Koala::Facebook::API.new(ENV['FACEBOOK_PAGE_LONG_LIVED_TOKEN'])
@@ -17,11 +21,37 @@ class FacebookPost
          graph.get_connection(ENV['FACEBOOK_PAGE_SLUG'], 'promotable_posts', limit: POSTS_PER_PAGE)
    end
 
-  def self.post_to_wall(content)
+  def post
+    res =  FacebookPost::post_to_page(self.options)
+    self.facebook_id = res['id']
+    res
+  end
+
+  def options
+    options = {
+        message: self.message,
+        published: self.published
+    }
+
+    if(self.scheduled_publish_time.present?)
+      options[:scheduled_publish_time] = self.scheduled_publish_time.to_i
+      options[:published] = false
+    end
+    options
+  end
+
+  def add_photo(image_attachment)
+    # upload to facebook
+    # persist to db
+    FacebookPost.graph.put_picture(image_attachment, self.options, ENV['FACEBOOK_PAGE_SLUG'])
+  end
+
+  def self.post_to_page(options)
     # scheduled_publish_time: unix timestamp
     # published: boolean
     # to publish Page posts, using the scheduled_publish_time field and the published field with a value of false.
-    graph.put_connections(ENV['FACEBOOK_PAGE_SLUG'], 'feed', {message: content, published: true})
+    #graph.put_connections(ENV['FACEBOOK_PAGE_SLUG'], 'feed', {message: content, published: true})
+    graph.put_connections(ENV['FACEBOOK_PAGE_SLUG'], 'feed', options)
   end
 
   def self.page_info
