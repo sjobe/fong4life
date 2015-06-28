@@ -25,6 +25,8 @@ gem 'figaro'
 gem 'rails_12factor'
 gem 'gretel'
 gem 'koala', '~> 2.0'
+gem 'jquery-colorbox-rails'
+
 
 
 group :doc do
