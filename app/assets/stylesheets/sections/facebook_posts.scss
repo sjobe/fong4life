@@ -1,13 +1,7 @@
 @import "../libs/settings";
 @import "../libs/mixins";
 
-body.facebook_posts.new, body.facebook_posts.edit, body.facebook_posts.update {
-  form {
-    border: none;
-  }
-}
-
-body.facebook_posts.show {
+body.facebook_posts {
   .post-image-link{
     outline: none;
   }
@@ -15,7 +9,15 @@ body.facebook_posts.show {
     width: 150px;
     margin: 10px;
   }
+}
 
+body.facebook_posts.new, body.facebook_posts.edit, body.facebook_posts.update {
+  form {
+    border: none;
+  }
+}
+
+body.facebook_posts.show {
   .insight-tooltip {
     color: $tertiary;
     &:hover{

@@ -28,6 +28,11 @@ crumb :show_facebook_post do |id|
   parent :facebook_posts
 end
 
+crumb :edit_facebook_post do |id|
+  link 'Edit Facebook Post', facebook_post_path(id: id)
+  parent :facebook_posts
+end
+
 # crumb :project do |project|
 #   link project.name, project_path(project)
 #   parent :projects

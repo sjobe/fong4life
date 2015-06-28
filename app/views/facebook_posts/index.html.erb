@@ -59,9 +59,9 @@
       <td><%= facebook_post['scheduled_publish_time'] ? 'Yes' : 'No' %></td>
       <td class="excerpt"><%= excerpt( facebook_post['message'], '', radius: 25)%> </td>
       <td>
-        <%= link_to 'Show', facebook_post_path(id: facebook_post['id']) %></td>
+        <%= link_to 'Show', facebook_post_path(id: facebook_post['id']) %>
       </td>
-      <td>Edit</td>
+      <td><%= link_to 'Edit', edit_facebook_post_path(id: facebook_post['id']) %></td>
       <td>
         <%= link_to 'Delete', "/facebook_posts/delete/#{facebook_post['id']}", class: 'delete-post' %></td>
       </td>

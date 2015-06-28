@@ -28,6 +28,10 @@ class FacebookPost
     res
   end
 
+  def update
+    FacebookPost.graph.put_connections(self.facebook_id, nil, self.options)
+  end
+
   def self.delete_post(id)
     graph.delete_object(id)
   end

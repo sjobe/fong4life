@@ -1,5 +1,12 @@
 $(function(){
 
+  // All pages
+  if($('body.facebook_posts').length) {
+    // Colorbox for images
+    $(".post-image-link").colorbox({rel: 'post-image-link'});
+  };
+
+  // List page
   if($('body.facebook_posts.index').length){
     $('.delete-post').on('click', function(e){
       e.preventDefault();
@@ -20,11 +27,8 @@ $(function(){
     });
   }
 
+  // Show Page
   if($('body.facebook_posts.show').length){
-
-    // Colorbox for images
-    $(".post-image-link").colorbox({rel:'post-image-link'});
-
     // Modal for delete posts
     $('.delete-post').on('click', function(e){
       e.preventDefault();

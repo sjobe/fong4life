@@ -10,17 +10,24 @@ class FacebookPostsController < ApplicationController
     @facebook_post = FacebookPost.new
   end
 
+  def edit
+    data = FacebookPost.get_post_data(params[:id])
+
+    @facebook_post = FacebookPost.new
+    @facebook_post.facebook_id = params[:id]
+    @facebook_post.message = data['message']
+    @facebook_post.published = data['is_published']
+    @facebook_post.scheduled_publish_time = Time.at(data['scheduled_publish_time']) if data['scheduled_publish_time']
+
+    @photo_attachments = photo_attachments(data)
+
+  end
+
   def show
     @facebook_post = FacebookPost.get_post_data(params[:id])
-    if @facebook_post['type'] == 'photo'
-      if @facebook_post['attachments']['data'].first['subattachments']
-          @photo_attachments = @facebook_post['attachments']['data'].first['subattachments']['data']
-      else
-        @photo_attachments = @facebook_post['attachments']['data']
-      end
-
-    end
+    @photo_attachments = photo_attachments(@facebook_post)
   end
+
 
   def create
     @facebook_post = FacebookPost.new(facebook_post_params)
@@ -45,12 +52,33 @@ class FacebookPostsController < ApplicationController
     end
   end
 
+  def update
+    @facebook_post = FacebookPost.new(facebook_post_params)
+    @facebook_post.facebook_id = params[:id]
+
+    if @facebook_post.update
+        redirect_to facebook_post_path(id: params[:id]), notice: 'This post was successfully updated.'
+    else
+      render action: 'edit', alert: 'there was an issue with your post'
+    end
+  end
+
   def delete
     FacebookPost.delete_post(params[:id])
     redirect_to facebook_posts_path, notice: 'Post was successfully deleted.'
   end
 
   def facebook_post_params
-    params.require(:facebook_post).permit(:status, :message, :published, :scheduled_publish_time)
+    params.require(:facebook_post).permit(:status, :message, :published, :scheduled_publish_time, :facebook_id)
+  end
+
+  def photo_attachments(facebook_post)
+    if facebook_post['type'] == 'photo'
+      if facebook_post['attachments']['data'].first['subattachments']
+        facebook_post['attachments']['data'].first['subattachments']['data']
+      else
+        facebook_post['attachments']['data']
+      end
+    end
   end
 end
