@@ -10,6 +10,8 @@ class FacebookPost
   field :published, type: Boolean
   field :scheduled_publish_time, type: DateTime
   field :image_attachments
+  field :draft, type: Boolean
+  field :draft_id, type: String
 
   def self.graph
     Koala.config.api_version = "v2.3"
@@ -25,6 +27,9 @@ class FacebookPost
   def post
     res =  FacebookPost::post_to_page(self.options)
     self.facebook_id = res['id']
+    if self.draft_id.present?
+      FacebookPost.find(self.draft_id).delete
+    end
     res
   end
 

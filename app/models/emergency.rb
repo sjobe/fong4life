@@ -20,7 +20,7 @@ class Emergency
   
   validates_presence_of :title, :description, :blood_group
   
-  attr_accessor :contact_next_batch, :donor_id
+  attr_accessor :contact_next_batch, :donor_id, :create_draft_facebook_post
   
   #TODO: Add a EmergencyComments; so emergency has_many comments
   
@@ -55,6 +55,10 @@ class Emergency
   def set_status_to_draft
     self.status = STATUS_DRAFT
     self.save
+
+    if self.create_draft_facebook_post.present?
+      FacebookPost.create(message: self.generated_sms_message, draft: true)
+    end
   end
   
   def num_matches

@@ -13,7 +13,9 @@ Fong4life::Application.routes.draw do
      get 'delete_donor', on: :member
      resources :donors, only: [:destroy]
    end
-   resources :facebook_posts
+   resources :facebook_posts do
+     get 'delete_draft', on: :member
+   end
    get 'facebook_posts/delete/:id' => 'facebook_posts#delete'
 
 

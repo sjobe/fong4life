@@ -76,3 +76,32 @@
     <li class="next <%= 'disabled' if @facebook_posts.count < FacebookPost::POSTS_PER_PAGE %>"><a href="<%= url_for(:page => @facebook_posts.next_page_params) %>">Next <span aria-hidden="true">&rarr;</span></a></li>
   </ul>
 </nav>
+
+<% if @drafts.present? %>
+<h3>Drafts</h3>
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th>Created At</th>
+      <th>Excerpt</th>
+      <th></th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @drafts.each do |draft| %>
+      <tr>
+        <td><%= formatted_date(draft.created_at) %></td>
+        <td class="excerpt"><%= excerpt( draft.message, '', radius: 25)%> </td>
+        <td>
+          <%= link_to 'Post', new_facebook_post_path(draft_id: draft.id) %>
+        </td>
+        <td>
+          <%= link_to 'Delete', "/facebook_posts/#{draft.id}/delete_draft", class: 'delete-draft' %></td>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

@@ -4,10 +4,16 @@ class FacebookPostsController < ApplicationController
   def index
     @facebook_posts = FacebookPost.get_all_posts(params)
     @page_info = FacebookPost.page_info
+
+    @drafts = FacebookPost.where(draft: true)
   end
 
   def new
     @facebook_post = FacebookPost.new
+    if params[:draft_id].present?
+      @draft = FacebookPost.find(params[:draft_id])
+      @facebook_post.message = @draft.message if @draft.present?
+    end
   end
 
   def edit
@@ -68,8 +74,13 @@ class FacebookPostsController < ApplicationController
     redirect_to facebook_posts_path, notice: 'Post was successfully deleted.'
   end
 
+  def delete_draft
+    FacebookPost.find(params[:id]).delete
+    redirect_to facebook_posts_path, notice: 'Draft was successfully deleted.'
+  end
+
   def facebook_post_params
-    params.require(:facebook_post).permit(:status, :message, :published, :scheduled_publish_time, :facebook_id)
+    params.require(:facebook_post).permit(:status, :message, :published, :scheduled_publish_time, :facebook_id, :draft_id)
   end
 
   def photo_attachments(facebook_post)

@@ -8,7 +8,7 @@ $(function(){
 
   // List page
   if($('body.facebook_posts.index').length){
-    $('.delete-post').on('click', function(e){
+    $('.delete-post, .delete-draft').on('click', function(e){
       e.preventDefault();
       e.stopPropagation()
       var excerpt = $(this).parents('tr').children('.excerpt').text();
