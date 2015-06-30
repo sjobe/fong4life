@@ -70,6 +70,8 @@ class EmergenciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def emergency_params
-      params.require(:emergency).permit(:title, :description, :sms_message_text, :blood_group, :status, :contact_next_batch, :match_found, :match_details, :donor_id, :contact_phone_number, :hospital_name)
+      params.require(:emergency).permit(:title, :description, :sms_message_text, :blood_group, :status,
+                                        :contact_next_batch, :match_found, :match_details, :donor_id, :contact_phone_number,
+                                        :hospital_name, :create_draft_facebook_post)
     end
 end

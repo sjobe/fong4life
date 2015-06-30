@@ -13,7 +13,12 @@ Fong4life::Application.routes.draw do
      get 'delete_donor', on: :member
      resources :donors, only: [:destroy]
    end
-  
+   resources :facebook_posts do
+     get 'delete_draft', on: :member
+   end
+   get 'facebook_posts/delete/:id' => 'facebook_posts#delete'
+
+
    match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
    match 'auth/failure', to: redirect('/'), via: [:get, :post]
    match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]

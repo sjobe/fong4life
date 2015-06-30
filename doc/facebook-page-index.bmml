@@ -1,0 +1,40 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1020" measuredH="820" mockupW="759" mockupH="630">
+  <controls>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Image" x="261" y="262" w="759" h="529" measuredW="2084" measuredH="1452" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <filter>true</filter>
+        <src>./assets/facebook-posts-index.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="261" y="190" w="759" h="630" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Fong4Life%0Ahttp%3A//app.fong4life.com</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Button" x="756" y="343" w="-1" h="-1" measuredW="78" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>New%20Post</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::DataGrid" x="271" y="390" w="569" h="273" measuredW="370" measuredH="81" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <hasHeader>true</hasHeader>
+        <text>Date%20%5E%2C%20Created%20By%20%5Ev%2C%20Content%2C%20Views%2C%20%2C%0A11/11/11%2C%20Serign%20Jobe%2C%20Lorem%20ipsum%20...%2C%2025%2C%20View%2C%20Edit%0A11/11/11%2C%20Serign%20Jobe%2C%20Lorem%20ipsum%20...%2C%2030%2C%20View%2C%20Edit</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::Image" x="443" y="690" w="267" h="43" measuredW="642" measuredH="104" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <filter>true</filter>
+        <src>./assets/pagination.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::ComboBox" x="271" y="343" w="-1" h="-1" measuredW="133" measuredH="62" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Filter%20Post%20Status%0APublished%20Posts%0AUnpublished%20Posts</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

@@ -1,0 +1,22 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1046" measuredH="683" mockupW="785" mockupH="631">
+  <controls>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Image" x="268" y="127" w="770" h="529" measuredW="2084" measuredH="1432" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <filter>true</filter>
+        <src>./assets/new_emergency.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="261" y="52" w="785" h="631" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Fong4Life%0Ahttp%3A//app.fong4life.com</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::CheckBox" x="291" y="415" w="-1" h="-1" measuredW="189" measuredH="22" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>selected</state>
+        <text>Create%20%20Facebook%20Post%20Draft</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

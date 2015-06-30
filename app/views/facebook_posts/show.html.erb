@@ -1,0 +1,66 @@
+<% content_for :header do %>
+  <h1>Facebook Post</h1>
+  <% breadcrumb :show_facebook_post, params[:id] %>
+<% end %>
+
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#details" aria-controls="details" role="tab" data-toggle="tab">Post Details</a></li>
+    <li role="presentation"><a href="#insights" aria-controls="insights" role="tab" data-toggle="tab">Insights</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="details">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row">
+            <div class="col-xs-3">
+              <strong>Posted At: </strong><%= facebook_date(@facebook_post['created_time']) %>
+            </div>
+            <div class="col-xs-2">
+              <strong>Type: </strong><%= @facebook_post['type'].capitalize %>
+            </div>
+            <div class="col-xs-2">
+              <strong>Published: </strong><%= @facebook_post['is_published'] ? 'Yes' : 'No'%>
+            </div>
+            <div class="col-xs-3">
+              <strong>Scheduled Post: </strong><%= @facebook_post['scheduled_publish_time'] ? 'Yes: ' + formatted_date(Time.at(@facebook_post['scheduled_publish_time'])) : 'No' %>
+            </div>
+            <div class="col-xs-2">
+              <strong>Link: </strong><%= link_to 'View on Facebook', @facebook_post['link'], target: '_blank' %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+
+              <div class="jumbotron">
+                <%= @facebook_post['message'] %>
+              </div>
+            </div>
+          </div>
+          <%= render 'attached_photos' %>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="insights">
+      <div class="row">
+        <% @facebook_post['insights']['data'].each do |insight| %>
+          <div class="col-xs-6">
+            <a href="#" class="glyphicon glyphicon-info-sign insight-tooltip" data-toggle="tooltip" data-placement="right" title="<%= insight['description'] %>"></a>
+            <%= insight['title'] %>: <%= insight_value(insight['values'].first['value']) %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%= link_to("<i class='glyphicon glyphicon-chevron-left'></i> Back".html_safe,
+            facebook_posts_path, class: 'btn btn-back ') %>
+
+<%= link_to '<i class="glyphicon glyphicon-edit"></i> Edit'.html_safe, edit_facebook_post_path(id: params[:id]), class: 'btn btn-primary' %>
+
+<%= link_to '<i class="glyphicon glyphicon-remove"></i> Delete'.html_safe, "/facebook_posts/delete/#{params['id']}", class: 'delete-post btn btn-danger' %>

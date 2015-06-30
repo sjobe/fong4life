@@ -31,6 +31,13 @@
     <%= f.label :description %><br>
     <%= f.text_area :description, class: 'form-control' %>
   </div>
+  <div class="field col-md-12 col-xs-12">
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :create_draft_facebook_post, class: 'checkbox'  %> <strong>Create draft Facebook post</strong>
+      </label>
+    </div>
+  </div>
   
   <div class="actions col-md-6 col-xs-12">
     <%= f.submit 'Save', class: 'btn btn-primary'%>

@@ -24,6 +24,10 @@ gem 'select2-rails'
 gem 'figaro'
 gem 'rails_12factor'
 gem 'gretel'
+gem 'koala', '~> 2.0'
+gem 'jquery-colorbox-rails'
+
+
 
 group :doc do
   gem 'sdoc', require: false # bundle exec rake doc:rails generates the API under doc/api.

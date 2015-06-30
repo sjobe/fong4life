@@ -14,6 +14,24 @@ crumb :emergencies do
   link 'Emergencies', blood_drives_path
 end
 
+crumb :facebook_posts do
+  link 'Facebook Page', facebook_posts_path
+end
+
+crumb :new_facebook_post do
+  link 'New Post', new_facebook_post_path
+  parent :facebook_posts
+end
+
+crumb :show_facebook_post do |id|
+  link 'Show Facebook Post', facebook_post_path(id: id)
+  parent :facebook_posts
+end
+
+crumb :edit_facebook_post do |id|
+  link 'Edit Facebook Post', facebook_post_path(id: id)
+  parent :facebook_posts
+end
 
 # crumb :project do |project|
 #   link project.name, project_path(project)

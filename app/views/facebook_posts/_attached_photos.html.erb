@@ -1,0 +1,11 @@
+<% if @photo_attachments %>
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <% @photo_attachments.each do |photo| %>
+        <a href="<%= photo['media']['image']['src'] %>" target="_blank" class="post-image-link">
+          <img src="<%= photo['media']['image']['src'] %>" alt="" class="post-image">
+        </a>
+      <% end %>
+    </div>
+  </div>
+<% end %>

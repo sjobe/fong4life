@@ -1,0 +1,44 @@
+<% content_for :header do %>
+  <h1>Edit Facebook Post</h1>
+  <% breadcrumb :edit_facebook_post, params[:id] %>
+<% end %>
+
+<%= form_for(@facebook_post, url: "/facebook_posts/#{params[:id]}", method: :put) do |f| %>
+  <% if @facebook_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@facebook_post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% @facebook_post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="field col-xs-6">
+      <%= f.label :published %>
+      <%= f.select :published, {'Yes' => true, 'No' => false}, {}, class: 'form-control' %>
+    </div>
+    <div class="field col-xs-6">
+      <%= f.label :publish_at %> (leave blank for immediate publishing)
+      <%= f.date_field :scheduled_publish_time, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field col-xs-12">
+      <%= f.label :message %>
+      <%= f.text_area :message, required: true, class: 'form-control' %>
+    </div>
+  </div>
+
+  <%= render 'attached_photos' %>
+
+  <div class="row">
+    <div class="actions col-md-6 col-xs-12">
+      <%= f.submit 'Update', class: 'btn btn-primary'%>
+      <%= link_to 'Cancel', facebook_posts_path, class: 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>
