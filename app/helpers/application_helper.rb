@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def formatted_date(date, include_time = true)
+  def formatted_date(date, include_time = false)
     if include_time
       date.in_time_zone("EST").strftime("%A, %d %b %Y, %l:%M %p")+ ' EST'
     else
