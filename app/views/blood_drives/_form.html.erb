@@ -1,7 +1,7 @@
 <%= form_for(@blood_drive) do |f| %>
   <% if @blood_drive.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@blood_drive.errors.count, "error") %> prohibited this blood_drive from being saved:</h2>
+      <h2><%= pluralize(@blood_drive.errors.count, "error") %> prohibited this Blood Drive from being saved:</h2>
 
       <ul>
       <% @blood_drive.errors.full_messages.each do |msg| %>
@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :date %><br>
-    <%= f.date_field :date, class: 'form-control' %>
+    <%= f.text_field :date, class: 'form-control datepicker' %>
   </div>
   <div class="field">
     <%= f.label :description %><br>

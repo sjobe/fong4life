@@ -15,4 +15,8 @@
 //= require bootstrap
 //= require select2
 //= require jquery.colorbox
+//= require pikaday
+//= require pikaday.jquery
 //= require_tree .
+
+$('.datepicker').pikaday();
