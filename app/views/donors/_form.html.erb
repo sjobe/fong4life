@@ -1,7 +1,7 @@
 <%= form_for(@donor) do |f| %>
   <% if @donor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@donor.errors.count, "error") %> prohibited this donor from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger">
+      <h4><%= pluralize(@donor.errors.count, "error") %> prohibited this donor from being saved:</h4>
 
       <ul>
       <% @donor.errors.full_messages.each do |msg| %>
@@ -55,7 +55,7 @@
   </div>
   <div class="actions">
     <%= f.submit 'Save', class: 'btn btn-primary' %>
-    <%= link_to 'Cancel', donors_path, class: 'btn btn-default' %>
+    <%= link_to 'Cancel', @donor, class: 'btn btn-default' %>
   </div>
 
 <% end %>

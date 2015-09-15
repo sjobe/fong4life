@@ -2,10 +2,11 @@
   <h1>Edit Emergency</h1>
 <% end %>
 
-<div class="col-md-12 ">
-       <%= link_to("<span class='glyphicon glyphicon-chevron-left'></span> Back".html_safe, emergencies_path, class: 'btn btn-back pull-right') %>
-</div>
 <%= render 'form' %>
-<%= link_to 'Show', @emergency, class: 'btn btn-default show-btn' %>
+<div class="col-md-12 col-xs-12 float-left">
+<%= link_to 'Show', @emergency %>  |   
+<%= link_to 'Back', @emergency %>  
+</div>
+
 
 
