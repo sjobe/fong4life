@@ -3,7 +3,6 @@
 <% end %>
 
 <div class="col-md-12">
-  <%= link_to("<i class='glyphicon glyphicon-chevron-left'></i> Back".html_safe, emergencies_path, class: 'btn btn-back ') %>
         
   <% if Emergency::STATUS_ACTIVE == @emergency.status && @emergency.pending_matches.count > 0%>
     <%= link_to("<span class='glyphicon glyphicon-remove'></span> Close Emergency".html_safe,'#', class: 'btn btn-danger pull-right', 'data-toggle' => "modal", 'data-target'=>"#closeEmergencyModal") %>
@@ -55,7 +54,8 @@
 
     <%= link_to '<span class="glyphicon glyphicon-edit"></span> Edit'.html_safe, edit_emergency_path(@emergency), class: 'btn btn-primary' %>
     <% end %>
-    
+    <%= link_to("<i class='glyphicon glyphicon-chevron-left'></i> Back".html_safe, emergencies_path, class: 'btn btn-back ') %>
+
   </div>
 </div>
 

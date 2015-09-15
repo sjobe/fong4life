@@ -1,7 +1,7 @@
 <%= form_for(@blood_drive) do |f| %>
   <% if @blood_drive.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@blood_drive.errors.count, "error") %> prohibited this Blood Drive from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger">
+      <h4><%= pluralize(@blood_drive.errors.count, "error") %> prohibited this Blood Drive from being saved:</h4>
 
       <ul>
       <% @blood_drive.errors.full_messages.each do |msg| %>
