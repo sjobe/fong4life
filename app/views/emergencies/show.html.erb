@@ -1,5 +1,6 @@
 <% content_for :header do %>
   <h1><%= @emergency.title %></h1>
+
 <% end %>
 
 <div class="col-md-12">
@@ -11,29 +12,23 @@
  <div class="row">
   <div class="col-md-8 emergency-">
     <h2>Emergency Information</h2>
-
-     <dl class="col-md-6 col-xs-12">
-      <dt>Status:</dt>
-      <dd><%= @emergency.status %></dd>
-    </dl>
-     <dl class="col-md-6 col-xs-12">
-      <dt>Created by:</dt>
-      <dd><%= @emergency.created_by %></dd>
-    </dl>
-    <dl class="col-md-6 col-xs-12">
-      <dt>Blood Group:</dt>
-      <dd><%= @emergency.blood_group %><dd>
-    </dl>
-    <dl class="col-md-6 col-xs-12">
-      <dt><strong>Details:</strong></dt>
-      <dd><%= @emergency.description %></dd>
-    </dl>
-    <dl class="col-md-12 col-xs-12">
-      <dt>Sms message text:</dt>
-      <dd><%= @emergency.sms_message_text %></dd>
-    </dl>
-     
-   
+    <div class="row-fluid">
+      <div class="col-md-6 col-xs-12 em_text">
+      <strong>Status:   </strong><%= @emergency.status %>      
+    </div>
+    <div class="col-md-6 col-xs-12  em_text">
+      <strong>Created by:   </strong><%= @emergency.created_by %>      
+    </div>
+    <div class="col-md-6 col-xs-12  em_text">
+      <strong>Blood Group:   </strong><%= @emergency.blood_group %>     
+    </div>
+     <div class="col-md-6 col-xs-12  em_text">
+      <strong>Details:   </strong><%= @emergency.description %>    
+    </div>
+    <div class="col-md-12 col-xs-12  em_text">
+      <strong>Sms message text:   </strong><%= @emergency.sms_message_text %>   
+    </div>
+    </div>
   </div>
   <div class="col-md-4 emergency-meta">
     <h2>Matches Found</h2>
@@ -60,7 +55,7 @@
 </div>
 
 <% if Emergency::STATUS_CLOSE == @emergency.status %>
-  <p>
+  <p class="em_text">
   <strong>Donor Found:</strong>
     <%= @emergency.match_found ? 'Yes' : 'No' %>
     <% if @emergency.donation %>
@@ -68,7 +63,7 @@
       <%= link_to "View Donor (#{@emergency.donation.donor.full_name})", @emergency.donation.donor %>
     <% end %>
 </p>
-  <p>
+  <p class="em_text">
   <strong>Details:</strong>
     <%= @emergency.match_details %>
 </p>

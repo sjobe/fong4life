@@ -1,10 +1,7 @@
 <% content_for :header do %>
   <h1><%= @blood_drive.location %></h1>
-  <% end %>
-
-  <div class="col-md-12 drive-date">
    <p class="meta"><%= formatted_date(@blood_drive.date)%></p>
-   </div>
+  <% end %>
    <div class="row">
      <div class="col-md-12 drive-p">
          <p>
@@ -16,13 +13,13 @@
      </div>
      <div class="col-md-4">
        <%= form_tag "/blood_drives/#{@blood_drive.id}/add_donor/", method: :post, id: 'add-donor-to-drive' do %>
-       <h3>Add Existing Donor</h3>
+       <h2>Add Existing Donor</h2>
        <%= select_tag :donor_id, options_from_collection_for_select(Donor.all, "id", "autocomplete_text") %>
        <div class="actions">
          <%= submit_tag 'Add Donor', class: 'btn btn-primary' %>
        </div>
        <% end %>
-       <h3>Add New Donor</h3>
+       <h2>Add New Donor</h2>
       <%= render partial: 'donors/form', locals: { event_id: @blood_drive.id, event_type: 'blood_drive' } %>
      </div>
 </div>
