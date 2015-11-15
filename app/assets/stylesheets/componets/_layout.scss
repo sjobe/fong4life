@@ -1,6 +1,12 @@
 @import "../libs/settings";
 @import "../libs/mixins";
 
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+}
 #sidebar {
   top: 0;
   bottom: 0;
@@ -39,7 +45,7 @@
   }
 
   .brand {
-    height: 75px;
+    height: 80px;
     background: $primary;
     width: 250px;
     line-height: 4;
@@ -48,8 +54,10 @@
     font-size: 18px;
     font-weight: 300;
     text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
-    .brand:hover{
+    .brand:hover, .brand:focus{
       color: #FFFFFF;
       display: block;
       text-decoration: none;
@@ -61,19 +69,34 @@
     padding:25px;
   }
   #nav-header {
-    height: 75px;
+    height: 80px;
     background: #1B1E25;
     border: none;
   }
 h1 {
-      color: #ffffff;
+    color: #ffffff;
+    margin-left: 0px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+    -webkit-font-smoothing: antialiased;
+    font-family: "Helvetica", Arial, sans-serif;
+}
+h2 {
+  font-size: 26px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  /* text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); */
+  -webkit-font-smoothing: antialiased;
+  /* font-family: "Helvetica", Arial, sans-serif; */
+  /* margin-left: 10px; */
 }
 
 footer {
   padding: 10px;
   position: relative;
   color: #CCD6DF;
-  background: #89949B;
+  background: #1B1E25;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .body,header,#nav-header, footer {
@@ -86,17 +109,74 @@ footer {
 }
 
 .emergency- h2, .emergency-meta h2{
-  margin-left: 12px;
+  margin-left: 0px;
 }
 .emergency- dd {
   margin: 10px auto;
 }
+.em_text, .fb-text {
+    padding: 0;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
 .bl_drives{
   clear: both;
 }
 .emer-btns {
   margin-right: 5px;
 }
+/* Form Styles */
+
+.form-control {
+    border-radius: 0;
+    box-shadow: none;
+    border: 0px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    line-height: 34px;
+    height: 40px;
+    font-size: 18px;
+    color: #737373;
+}
+.field select {
+  background-image: none;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  border-bottom: 1px solid #cccccc;
+}
+.field label {
+  text-transform: uppercase;
+}
+.form-control:focus {
+    border-color: #CB100A;
+    outline: 0;
+}
+.emergency-  dt {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.table {
+  margin-left: 0px;
+}
+.table > thead > tr > th {
+  border-bottom: 1px solid #dddddd;
+  text-transform: uppercase;
+  font-size: 12px;
+  padding-left: 0;
+}
+.breadcrumbs {
+  margin-left: 0px;
+  margin-top: 10px;
+}
+.donor-info {
+  font-size: 16px;
+    margin: 6px 0;
+}
+.new_donor .field input, .new_donor .field select {
+  /* width: 60%; */
+}
+/* End Form Styles */
 /* BTN STYLES */
 
   .btn-primary, .btn-warning, .btn-default{
@@ -136,16 +216,20 @@ footer {
     padding: 10px 30px;
     border-radius: 0;
     text-transform: uppercase; 
+    border-color: transparent;
   }
   .show-btn {
     margin-left: 20px;
   }
 
-  .drive-p{
-    margin-left: 7px;
-  }
-  .drive-date{
-    margin-left: -7px;
+ .drive-p {
+    margin-left: 0px;
+    margin-top: 20px;
+}
+  .meta{
+    padding: 0px;
+    margin-top: -10px;
+    color: #ccc;
   }
   .select2-container {
     width: 95%!important;

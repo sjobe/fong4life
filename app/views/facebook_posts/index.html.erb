@@ -3,22 +3,22 @@
   <% breadcrumb :facebook_posts %>
 <% end %>
 
-<h3>Page Info</h3>
+<h2>Page Info</h2>
 <div class="row">
   <div class="col-xs-12">
-    <div class="row">
-      <div class="col-xs-5">
+    <div class="row-fluid">
+      <div class="col-xs-5 fb-text">
         <strong>Name: </strong><%= @page_info['name'] %>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 fb-text">
         <strong>Page Likes: </strong><%= @page_info['likes'] %>
       </div>
-      <div class="col-xs-5">
+      <div class="col-xs-5 fb-text">
         <strong>Link: </strong><%= link_to @page_info['link'], @page_info['link'], target: '_blank' %>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12">
+    <div class="row-fluid">
+      <div class="col-xs-12 fb-text">
         <strong>About: </strong><%= @page_info['about'] %>
       </div>
     </div>
@@ -28,7 +28,7 @@
 <hr/>
 <div class="row">
   <div class="col-sm-6">
-    <h3>Posts</h3>
+    <h2>Posts</h2>
   </div>
   <div class="col-sm-6">
     <%= link_to "<i class='glyphicon glyphicon-plus-sign'></i> New Facebook Post".html_safe,
